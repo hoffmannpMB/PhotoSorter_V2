@@ -1,6 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using MVVM_Base;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
-using MVVM_Base;
 
 namespace ViewModels.Implementations
 {

@@ -120,6 +120,9 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxWithHeaderAndLabel.xaml.cs">
+      <DependentUpon>ComboBoxWithHeaderAndLabel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FlipViewWithPageIndicator.xaml.cs">
       <DependentUpon>FlipViewWithPageIndicator.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="ComboBoxWithHeaderAndLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FlipViewWithPageIndicator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

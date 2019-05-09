@@ -51,4 +51,10 @@
   <data name="LabelImport.Label" xml:space="preserve">
     <value>Importieren</value>
   </data>
+  <data name="LanguageComboBox.Header" xml:space="preserve">
+    <value>Wählen Sie die Oberflächensprache aus</value>
+  </data>
+  <data name="LanguageComboBox.Text" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
 </root>

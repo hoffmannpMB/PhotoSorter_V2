@@ -1,7 +1,6 @@
 ﻿using Autofac;
-using System.Reflection;
-using MVVM_Base;
 using PhotoSorter_V2.UiHelper;
+using System.Reflection;
 using ViewModels;
 
 namespace PhotoSorter_V2
@@ -14,12 +13,11 @@ namespace PhotoSorter_V2
         private Bootstrapper()
         {
             Container = Build();
-            //var t = Container.Resolve<INavigationService>();
         }
 
         private static IContainer Build()
         {
-            var builder = new ContainerBuilder();
+            ContainerBuilder builder = new ContainerBuilder();
 
             BuildHelper(builder);
             BuildViewModels(builder);

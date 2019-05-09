@@ -4,12 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:custom="using:CustomControls"
     mc:Ignorable="d"
     DataContext="{Binding Path=SettingsViewModel, Source={StaticResource ViewModelLocator}}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles.xaml" />
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
@@ -23,13 +29,15 @@
             </CommandBar.Content>
         </CommandBar>
 
-        <ComboBox Grid.Row="1"
-                  Margin="5"
-                  DisplayMemberPath="DisplayName" 
-                  ItemsSource="{Binding Languages}" 
-                  SelectedItem="{Binding SelectedLanguage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <custom:ComboBoxWithHeaderAndLabel Grid.Row="1" 
+                                           x:Uid="LanguageComboBox"
+                                           DisplayMemberPath="DisplayName"
+                                           ItemsSource="{Binding Languages}"
+                                           SelectedItem="{Binding SelectedLanguage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <CommandBar Grid.Row="3" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
+        <Border Grid.Row="2" Style="{StaticResource DownwardDropShadow}" BorderThickness="1.5" Opacity="0.9" BorderBrush="#ddd" VerticalAlignment="Bottom" Background="#FFC8D5DD" />
+
+        <CommandBar Grid.Row="5" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
             <AppBarButton Icon="Accept" x:Uid="LabelAccept" Command="{Binding SaveCommand}" />
             <AppBarButton Icon="Cancel" x:Uid="LabelCancel" Command="{Binding BackCommand}" />
         </CommandBar>
