@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Windows.Globalization;
 using Windows.Storage;
 using Models;
 using MVVM_Base;
@@ -22,7 +23,8 @@ namespace ViewModels.Implementations
                 new Language { DisplayName = "English", LanguageCode = "en-US"}
             };
 
-            SelectedLanguage = ReadSettings<Language>(nameof(SelectedLanguage), Languages.First());
+            SelectedLanguage =
+                Languages.FirstOrDefault(l => l.LanguageCode == ApplicationLanguages.PrimaryLanguageOverride) ?? Languages.First();
         }
 
         public ICommand SaveCommand { get; }
@@ -30,7 +32,7 @@ namespace ViewModels.Implementations
 
         private void ExecuteSave()
         {
-            _localSettings.Values[nameof(SelectedLanguage)] = SelectedLanguage;
+            ApplicationLanguages.PrimaryLanguageOverride = SelectedLanguage.LanguageCode;
 
             BackCommand.Execute(null);
         }

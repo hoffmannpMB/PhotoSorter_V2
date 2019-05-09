@@ -22,12 +22,16 @@
                 <Button Style="{StaticResource NavigationBackButtonNormalStyle}" Command="{Binding BackCommand}" />
             </CommandBar.Content>
         </CommandBar>
-        
-        <ComboBox Grid.Row="1" ItemsSource="{Binding Languages}" DisplayMemberPath="DisplayName" SelectedItem="{Binding SelectedLanguage}" />
+
+        <ComboBox Grid.Row="1"
+                  Margin="5"
+                  DisplayMemberPath="DisplayName" 
+                  ItemsSource="{Binding Languages}" 
+                  SelectedItem="{Binding SelectedLanguage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <CommandBar Grid.Row="3" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
-            <AppBarButton Icon="Accept" Label="Accept" Command="{Binding SaveCommand}" />
-            <AppBarButton Icon="Cancel" Label="Cancel" Command="{Binding BackCommand}" />
+            <AppBarButton Icon="Accept" x:Uid="LabelAccept" Command="{Binding SaveCommand}" />
+            <AppBarButton Icon="Cancel" x:Uid="LabelCancel" Command="{Binding BackCommand}" />
         </CommandBar>
     </Grid>
 </Page>

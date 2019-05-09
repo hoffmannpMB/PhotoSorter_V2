@@ -16,12 +16,12 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <CommandBar Grid.Row="0" IsOpen="True" OverflowButtonVisibility="Collapsed">
+        <CommandBar Grid.Row="0" IsOpen="True" IsSticky="True">
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal">
-                    <AppBarButton Icon="Import" Label="Import" />
+                    <AppBarButton Icon="Import" x:Uid="LabelImport" />
                     <AppBarSeparator />
-                    <AppBarButton Icon="Setting" Label="Setting" Command="{Binding SettingsCommand}" />
+                    <AppBarButton Icon="Setting" x:Uid="LabelSettings" Command="{Binding SettingsCommand}" />
                 </StackPanel>
             </CommandBar.Content>
         </CommandBar>
@@ -40,8 +40,8 @@
                     <custom:ProgressbarWithText Value="80" Width="300" Height="100" TextMargin="120 10"/>
                 </Grid>
             </CommandBar.Content>
-            <AppBarButton Icon="Accept" Label="{x:Static p:Resources.Accept}"/>
-            <AppBarButton Icon="Cancel" Label="Cancel"/>
+            <AppBarButton Icon="Accept" x:Uid="LabelAccept"/>
+            <AppBarButton Icon="Cancel" x:Uid="LabelCancel"/>
         </CommandBar>
     </Grid>
 </Page>
