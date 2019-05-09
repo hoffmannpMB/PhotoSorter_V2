@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="PhotoSorter_V2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PhotoSorter_V2"
+    xmlns:custom="using:CustomControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <CommandBar Grid.Row="0" DefaultLabelPosition="Right" IsOpen="True" OverflowButtonVisibility="Collapsed">
+            <CommandBar.Content>
+                <StackPanel Orientation="Horizontal">
+                    <AppBarButton Icon="Import" Label="Import" />
+                    <AppBarSeparator />
+                    <AppBarButton Icon="Setting" Label="Setting" />
+                </StackPanel>
+            </CommandBar.Content>
+        </CommandBar>
+
+        <custom:FlipViewWithPageIndicator Grid.Row="1" />
+
+        <CommandBar Grid.Row="2" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
+            <CommandBar.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <custom:ProgressbarWithText Value="80" Width="300" Height="100" TextMargin="120 10"/>
+                </Grid>
+            </CommandBar.Content>
+            <AppBarButton Icon="Accept" Label="Accept"/>
+            <AppBarButton Icon="Cancel" Label="Cancel"/>
+        </CommandBar>
+    </Grid>
+</Page>
