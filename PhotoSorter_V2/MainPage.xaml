@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    DataContext="{Binding Path=MainPageViewModel, Source={StaticResource ViewModelLocator}}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -26,7 +27,8 @@
             </CommandBar.Content>
         </CommandBar>
 
-        <custom:FlipViewWithPageIndicator Grid.Row="1" />
+        <custom:FlipViewWithPageIndicator Grid.Row="1" 
+                                          Images="{Binding Images}"/>
 
         <CommandBar Grid.Row="2" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
             <CommandBar.Content>

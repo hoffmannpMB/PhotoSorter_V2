@@ -10,12 +10,6 @@ namespace CustomControls
     {
         public FlipViewWithPageIndicator()
         {
-            Images = new ObservableCollection<string>
-            {
-                @"TestImages/leopard1.jpg",
-                @"TestImages/leopard2.jpg"
-            };
-
             InitializeComponent();
         }
 

@@ -120,7 +120,10 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="IMainPageViewModel.cs" />
     <Compile Include="ImportViewModel.cs" />
+    <Compile Include="Implementations\MainPageViewModel.cs" />
+    <Compile Include="MockViewModels\MockMainPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\ViewModels.rd.xml" />
   </ItemGroup>
@@ -135,6 +138,7 @@
       <Name>MVVM_Base</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
