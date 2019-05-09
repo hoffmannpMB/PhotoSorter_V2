@@ -1,9 +1,9 @@
-﻿using Autofac;
+﻿using Windows.ApplicationModel;
+using Autofac;
 using ViewModels;
 using ViewModels.MockViewModels;
-using Windows.ApplicationModel;
 
-namespace PhotoSorter_V2
+namespace PhotoSorter_V2.UiHelper
 {
     public class ViewModelLocator
     {
@@ -17,6 +17,11 @@ namespace PhotoSorter_V2
         public IMainPageViewModel MainPageViewModel => IsInDesignMode
             ? new MockMainPageViewModel()
             : _container.Resolve<IMainPageViewModel>();
+
+        public ISettingsViewModel SettingsViewModel => IsInDesignMode
+            ? new MockSettingsViewModel()
+            : _container.Resolve<ISettingsViewModel>();
+
 
 
         // returns true if editing .xaml file in VS for example

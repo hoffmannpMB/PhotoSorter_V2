@@ -5,7 +5,7 @@ namespace ViewModels.MockViewModels
 {
     public class MockMainPageViewModel : MainPageViewModel
     {
-        public MockMainPageViewModel()
+        public MockMainPageViewModel() : base(new MockNavigationService())
         {
             Images = new ObservableCollection<string>
             {

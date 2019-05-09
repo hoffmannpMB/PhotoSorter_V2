@@ -121,9 +121,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IMainPageViewModel.cs" />
-    <Compile Include="ImportViewModel.cs" />
+    <Compile Include="Implementations\ImportViewModel.cs" />
     <Compile Include="Implementations\MainPageViewModel.cs" />
+    <Compile Include="Implementations\SettingsViewModel.cs" />
+    <Compile Include="ISettingsViewModel.cs" />
     <Compile Include="MockViewModels\MockMainPageViewModel.cs" />
+    <Compile Include="MockViewModels\MockNavigationService.cs" />
+    <Compile Include="MockViewModels\MockSettingsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\ViewModels.rd.xml" />
   </ItemGroup>
@@ -133,6 +137,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{33780170-39f5-4b35-bbd4-4ab0ab78fd9c}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MVVM_Base\MVVM_Base.csproj">
       <Project>{803B936A-15A0-4D60-8C11-1174FDD65C4F}</Project>
       <Name>MVVM_Base</Name>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using MVVM_Base.Annotations;
+using MVVM_Base.Properties;
 
 namespace MVVM_Base
 {

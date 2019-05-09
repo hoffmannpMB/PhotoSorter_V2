@@ -120,6 +120,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="INavigationService.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
