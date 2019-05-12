@@ -1,4 +1,4 @@
-﻿namespace ViewModels
+﻿namespace Models.Implementations
 {
     public class Language
     {

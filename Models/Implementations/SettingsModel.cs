@@ -1,6 +1,4 @@
-﻿using ViewModels;
-
-namespace Models
+﻿namespace Models.Implementations
 {
     public class SettingsModel
     {
