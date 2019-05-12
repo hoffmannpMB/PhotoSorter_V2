@@ -58,4 +58,7 @@
   <data name="LanguageComboBox.Text" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="LabelSave.Label" xml:space="preserve">
+    <value>Save</value>
+  </data>
 </root>

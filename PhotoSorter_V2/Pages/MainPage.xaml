@@ -21,9 +21,10 @@
                 <StackPanel Orientation="Horizontal">
                     <AppBarButton Icon="Import" x:Uid="LabelImport" />
                     <AppBarSeparator />
-                    <AppBarButton Icon="Setting" x:Uid="LabelSettings" Command="{Binding SettingsCommand}" />
+                    <AppBarButton Icon="Save" x:Uid="LabelSave" />
                 </StackPanel>
             </CommandBar.Content>
+            <AppBarButton Icon="Setting" x:Uid="LabelSettings" Command="{Binding SettingsCommand}" />
         </CommandBar>
 
         <custom:FlipViewWithPageIndicator Grid.Row="1" 
@@ -40,8 +41,6 @@
                     <custom:ProgressbarWithText Value="80" Width="300" Height="100" TextMargin="120 10"/>
                 </Grid>
             </CommandBar.Content>
-            <AppBarButton Icon="Accept" x:Uid="LabelAccept"/>
-            <AppBarButton Icon="Cancel" x:Uid="LabelCancel"/>
         </CommandBar>
     </Grid>
 </Page>
