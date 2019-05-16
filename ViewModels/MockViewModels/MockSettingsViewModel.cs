@@ -1,11 +1,13 @@
-﻿using ViewModels.Implementations;
+﻿using System.Windows.Input;
+using ViewModels.Implementations;
 
 namespace ViewModels.MockViewModels
 {
-    public class MockSettingsViewModel : SettingsViewModel
+    public class MockSettingsViewModel : ISettingsViewModel
     {
-        public MockSettingsViewModel() : base(new MockNavigationService())
-        {
-        }
+        public IAppSettingsViewModel AppSettings { get; }
+        public IProjectSettingsViewModel ProjectSettings { get; }
+        public ICommand SaveCommand { get; }
+        public ICommand BackCommand { get; }
     }
 }

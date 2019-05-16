@@ -120,8 +120,12 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="IAppSettingsRepository.cs" />
+    <Compile Include="Implementations\AppSettingsRepository.cs" />
     <Compile Include="IPhotoRepository.cs" />
     <Compile Include="Implementations\PhotoRepository.cs" />
+    <Compile Include="IProjectSettingsRepository.cs" />
+    <Compile Include="Implementations\ProjectSettingsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Repository.rd.xml" />
   </ItemGroup>

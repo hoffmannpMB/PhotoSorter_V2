@@ -120,15 +120,24 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ICameraViewModel.cs" />
     <Compile Include="IMainPageViewModel.cs" />
+    <Compile Include="Implementations\CameraViewModel.cs" />
     <Compile Include="Implementations\ImportViewModel.cs" />
     <Compile Include="Implementations\MainPageViewModel.cs" />
-    <Compile Include="Implementations\SettingsViewModel.cs" />
+    <Compile Include="Implementations\AppSettingsViewModel.cs" />
+    <Compile Include="IAppSettingsViewModel.cs" />
+    <Compile Include="IProjectSettingsViewModel.cs" />
     <Compile Include="ISettingsViewModel.cs" />
+    <Compile Include="MockViewModels\MockCameraViewModel.cs" />
     <Compile Include="MockViewModels\MockMainPageViewModel.cs" />
     <Compile Include="MockViewModels\MockNavigationService.cs" />
+    <Compile Include="MockViewModels\MockAppSettingsViewModel.cs" />
+    <Compile Include="MockViewModels\MockProjectSettingsViewModel.cs" />
     <Compile Include="MockViewModels\MockSettingsViewModel.cs" />
+    <Compile Include="Implementations\ProjectSettingsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Implementations\SettingsViewModel.cs" />
     <EmbeddedResource Include="Properties\ViewModels.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +146,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{FFD81F2D-DC27-4495-9D69-2BEE253FE18D}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{33780170-39f5-4b35-bbd4-4ab0ab78fd9c}</Project>
       <Name>Models</Name>
@@ -144,6 +157,10 @@
     <ProjectReference Include="..\MVVM_Base\MVVM_Base.csproj">
       <Project>{803B936A-15A0-4D60-8C11-1174FDD65C4F}</Project>
       <Name>MVVM_Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{9dab3bcd-42eb-4242-b345-0ee249f31537}</Project>
+      <Name>Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

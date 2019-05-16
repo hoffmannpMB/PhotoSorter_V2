@@ -1,6 +1,6 @@
 ﻿using MVVM_Base;
 
-namespace ViewModels
+namespace ViewModels.Implementations
 {
     public class ImportViewModel : ViewModelBase
     {

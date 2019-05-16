@@ -60,4 +60,19 @@
   <data name="LabelSave.Label" xml:space="preserve">
     <value>Speichern</value>
   </data>
+  <data name="CompareImagesText.Text" xml:space="preserve">
+    <value>Bilder vergleichen</value>
+  </data>
+  <data name="CompareImagesUWP.Header" xml:space="preserve">
+    <value>Ermöglicht den Vergleich von Fotos und zeigt gleiche Fotos an. Achtung: Der Vergleich kann bei vielen Fotos einiges an Zeit benötigen.</value>
+  </data>
+  <data name="TextAppSettings.Text" xml:space="preserve">
+    <value>App Einstellungen</value>
+  </data>
+  <data name="TextProjectSettings.Text" xml:space="preserve">
+    <value>Projekt Einstellungen</value>
+  </data>
+  <data name="ComboBoxTimeZone.Header" xml:space="preserve">
+    <value>Zeitzone</value>
+  </data>
 </root>

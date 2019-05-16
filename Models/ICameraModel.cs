@@ -1,9 +1,12 @@
-﻿namespace Models
+﻿using System;
+
+namespace Models
 {
     public interface ICameraModel
     {
-        string IconPath { get; set; }
         string Manufacturer { get; set; }
-        int Offset { get; set; }
+        string CameraType { get; set; }
+        string IconPath { get; set; }
+        TimeZoneInfo TimeZone{ get; set; }
     }
 }

@@ -10,6 +10,47 @@
     d:DesignWidth="400">
 
     <Grid>
-        <Image Source="TestImages/leopard2.jpg"></Image>
+        <ListView
+        Name="ListView"
+        IsSwipeEnabled="False">
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <Grid>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal"/>
+                                        </VisualStateGroup>
+                                        <VisualStateGroup x:Name="SelectionStates">
+                                            <VisualState x:Name="Unselected">
+                                                <Storyboard>
+                                                    <ColorAnimation Duration="0" Storyboard.TargetName="myColoredText" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="Orange"/>
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="SelectedUnfocused">
+                                                <Storyboard>
+                                                    <ColorAnimation Duration="0" Storyboard.TargetName="myColoredText" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="Red"/>
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+
+                                    <!-- Here I have my custom layout, removed for readability -->
+                                    <TextBlock
+                                    Name="myColoredText"
+                                    Foreground="Green"
+                                    Text="{Binding Content.MyProperty, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <!-- This does not work -->
+
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
     </Grid>
 </UserControl>

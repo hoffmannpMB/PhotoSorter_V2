@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:custom="using:CustomControls"
+    xmlns:userControls="using:PhotoSorter_V2.UserControls"
     mc:Ignorable="d"
     DataContext="{Binding Path=SettingsViewModel, Source={StaticResource ViewModelLocator}}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -29,13 +29,11 @@
             </CommandBar.Content>
         </CommandBar>
 
-        <custom:ComboBoxWithHeaderAndLabel Grid.Row="1" 
-                                           x:Uid="LanguageComboBox"
-                                           DisplayMemberPath="DisplayName"
-                                           ItemsSource="{Binding Languages}"
-                                           SelectedItem="{Binding SelectedLanguage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <userControls:AppSettings Grid.Row="1" />
 
         <Border Grid.Row="2" Style="{StaticResource DownwardDropShadow}" BorderThickness="1.5" Opacity="0.9" BorderBrush="#ddd" VerticalAlignment="Bottom" Background="#FFC8D5DD" />
+
+        <userControls:ProjectSettings Grid.Row="3" />
 
         <CommandBar Grid.Row="5" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
             <AppBarButton Icon="Accept" x:Uid="LabelAccept" Command="{Binding SaveCommand}" />

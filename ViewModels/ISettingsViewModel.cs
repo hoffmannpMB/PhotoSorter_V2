@@ -1,14 +1,13 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-using Models.Implementations;
+﻿using System.Windows.Input;
+using Models;
 
 namespace ViewModels
 {
     public interface ISettingsViewModel
     {
+        IAppSettingsViewModel AppSettings { get; }
+        IProjectSettingsViewModel ProjectSettings { get; }
         ICommand SaveCommand { get; }
         ICommand BackCommand { get; }
-        ObservableCollection<Language> Languages { get; set; }
-        Language SelectedLanguage { get; set; }
     }
 }

@@ -1,67 +1,38 @@
-﻿using Models.Implementations;
+﻿using BusinessLogic;
 using MVVM_Base;
-using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
-using Windows.Globalization;
-using Windows.Storage;
-using Language = Models.Implementations.Language;
 
 namespace ViewModels.Implementations
 {
-    public class SettingsViewModel : ViewModelBase<SettingsModel>, ISettingsViewModel
+    public class SettingsViewModel : ISettingsViewModel
     {
-        private readonly ApplicationDataContainer _localSettings;
+        private readonly IAppSettingsService _appSettingsService;
+        private readonly IProjectSettingsService _projectSettingsService;
 
-        public SettingsViewModel(INavigationService navigationService)
+        public SettingsViewModel(INavigationService navigationService, IAppSettingsViewModel appSettings, IProjectSettingsViewModel projectSettings, IAppSettingsService appSettingsService, IProjectSettingsService projectSettingsService)
         {
-            _localSettings = ApplicationData.Current.LocalSettings;
+            _appSettingsService = appSettingsService;
+            _projectSettingsService = projectSettingsService;
+            AppSettings = appSettings;
+            ProjectSettings = projectSettings;
+
             SaveCommand = new RelayCommand(p => ExecuteSave());
             BackCommand = new RelayCommand(p => navigationService.NavigateBack());
-            Languages = new ObservableCollection<Language>
-            {
-                new Language { DisplayName = "Deutsch", LanguageCode = "de-DE"},
-                new Language { DisplayName = "English", LanguageCode = "en-US"}
-            };
-
-            SelectedLanguage =
-                Languages.FirstOrDefault(l => l.LanguageCode == ApplicationLanguages.PrimaryLanguageOverride) ?? Languages.First();
         }
 
-        public ICommand SaveCommand { get; }
-        public ICommand BackCommand { get; }
+
 
         private void ExecuteSave()
         {
-            ApplicationLanguages.PrimaryLanguageOverride = SelectedLanguage.LanguageCode;
+            _appSettingsService.Save(AppSettings);
+            _projectSettingsService.Save(ProjectSettings);
 
             BackCommand.Execute(null);
         }
 
-        private T ReadSettings<T>(string key, T defaultValue = default)
-        {
-            if (_localSettings.Values.ContainsKey(key))
-                return (T)_localSettings.Values[key];
-
-            if (null != defaultValue)
-                return defaultValue;
-
-            return default;
-        }
-
-        public ObservableCollection<Language> Languages { get; set; }
-
-        public Language SelectedLanguage
-        {
-            get => Model.SelectedLanguage;
-            set
-            {
-                if (Model.SelectedLanguage == value)
-                    return;
-
-                Model.SelectedLanguage = value;
-                OnPropertyChanged();
-            }
-        }
+        public IAppSettingsViewModel AppSettings { get; }
+        public IProjectSettingsViewModel ProjectSettings { get; }
+        public ICommand SaveCommand { get; }
+        public ICommand BackCommand { get; }
     }
 }

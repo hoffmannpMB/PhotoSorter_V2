@@ -13,17 +13,13 @@ namespace CustomControls
             InitializeComponent();
         }
 
-        //------------------------------------------------------
-        //--------------FlipView--------------------------------
-        //------------------------------------------------------
-
         public static readonly DependencyProperty ImagesProperty = DependencyProperty.Register(
             "Images", typeof(ObservableCollection<string>), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(ObservableCollection<string>)));
 
         public ObservableCollection<string> Images
         {
-            get { return (ObservableCollection<string>) GetValue(ImagesProperty); }
-            set { SetValue(ImagesProperty, value); }
+            get => (ObservableCollection<string>) GetValue(ImagesProperty);
+            set => SetValue(ImagesProperty, value);
         }
     }
 }

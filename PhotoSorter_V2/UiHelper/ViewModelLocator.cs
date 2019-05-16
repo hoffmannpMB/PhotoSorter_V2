@@ -18,10 +18,17 @@ namespace PhotoSorter_V2.UiHelper
             ? new MockMainPageViewModel()
             : _container.Resolve<IMainPageViewModel>();
 
+        public IAppSettingsViewModel AppSettingsViewModel => IsInDesignMode
+            ? new MockAppSettingsViewModel()
+            : _container.Resolve<IAppSettingsViewModel>();
+
+        public IProjectSettingsViewModel ProjectSettingsViewModel => IsInDesignMode
+            ? new MockProjectSettingsViewModel()
+            : _container.Resolve<IProjectSettingsViewModel>();
+
         public ISettingsViewModel SettingsViewModel => IsInDesignMode
             ? new MockSettingsViewModel()
             : _container.Resolve<ISettingsViewModel>();
-
 
 
         // returns true if editing .xaml file in VS for example
