@@ -120,7 +120,14 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="IRangeObservableCollection.cs" />
+    <Compile Include="Implementations\RangeObservableCollection.cs" />
     <Compile Include="INavigationService.cs" />
+    <Compile Include="Messenger\ActionIdentifier.cs" />
+    <Compile Include="Messenger\IActionParameter.cs" />
+    <Compile Include="IMessenger.cs" />
+    <Compile Include="Messenger\Messenger.cs" />
+    <Compile Include="Messenger\WeakReferenceAction.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="Properties\Annotations.cs" />

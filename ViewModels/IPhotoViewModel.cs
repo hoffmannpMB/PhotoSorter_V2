@@ -1,8 +1,9 @@
 ﻿using System;
+using Models;
 
-namespace Models
+namespace ViewModels
 {
-    public interface IPhotoModel
+    public interface IPhotoViewModel
     {
         string ImagePath { get; set; }
         ICameraModel CameraModel { get; set; }

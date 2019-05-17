@@ -16,10 +16,11 @@
         </Grid.RowDefinitions>
         <FlipView Grid.Row="0"
                   Name="FlipView"
+                  SelectedValue="{Binding SelectedImage, ElementName=UserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Images, ElementName=UserControl}">
             <FlipView.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding}" />
+                    <Image Source="{Binding ImagePath}" />
                 </DataTemplate>
             </FlipView.ItemTemplate>
         </FlipView>
@@ -35,7 +36,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Image Source="{Binding}" 
+                        <Image Source="{Binding ImagePath}" 
                                MaxWidth="120"
                                MaxHeight="120"/>
                         <TextBlock Text="70% Similarity"

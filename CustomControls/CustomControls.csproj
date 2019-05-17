@@ -162,6 +162,12 @@
     <Content Include="TestImages\leopard1.jpg" />
     <Content Include="TestImages\leopard2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{33780170-39F5-4B35-BBD4-4AB0AB78FD9C}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

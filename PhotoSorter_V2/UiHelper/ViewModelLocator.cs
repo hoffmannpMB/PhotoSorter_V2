@@ -30,6 +30,10 @@ namespace PhotoSorter_V2.UiHelper
             ? new MockSettingsViewModel()
             : _container.Resolve<ISettingsViewModel>();
 
+        public object PhotoViewModel => IsInDesignMode
+            ? new MockPhotoViewModel()
+            : _container.Resolve<IPhotoViewModel>();
+
 
         // returns true if editing .xaml file in VS for example
         private static bool IsInDesignMode => DesignMode.DesignModeEnabled;

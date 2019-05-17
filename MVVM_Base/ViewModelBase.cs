@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using MVVM_Base.Properties;
 
@@ -20,11 +21,30 @@ namespace MVVM_Base
     /// <inheritdoc />
     public class ViewModelBase<TModel> : ViewModelBase
     {
-        protected TModel Model { get; }
+        private TModel _model;
 
-        public ViewModelBase()
+        protected ViewModelBase()
         {
-            Model = Activator.CreateInstance<TModel>();
+            _model = Activator.CreateInstance<TModel>();
+        }
+
+        private void SetModelValues(TModel value)
+        {
+            if (value == null) throw new ArgumentNullException(nameof(value));
+
+            var properties = _model.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+
+            foreach (var property in properties)
+            {
+                property.SetValue(_model, property.GetValue(value));
+                OnPropertyChanged(property.Name);
+            }
+        }
+
+        public TModel Model
+        {
+            get => _model;
+            set => SetModelValues(value);
         }
     }
 }

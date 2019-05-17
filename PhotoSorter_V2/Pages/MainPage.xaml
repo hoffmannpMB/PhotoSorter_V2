@@ -16,21 +16,33 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
         <CommandBar Grid.Row="0" IsOpen="True" IsSticky="True">
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal">
-                    <AppBarButton Icon="Import" x:Uid="LabelImport" />
+                    <AppBarButton Icon="Import" x:Uid="LabelImport" Command="{Binding ImportCommand}" />
+                    <AppBarButton Icon="Save" x:Uid="LabelSave" Command="{Binding SaveCommand}" />
                     <AppBarSeparator />
-                    <AppBarButton Icon="Save" x:Uid="LabelSave" />
+                    <AppBarButton Icon="Edit" x:Uid="LabelEdit" Command="{Binding EditCommand}" />
                 </StackPanel>
             </CommandBar.Content>
             <AppBarButton Icon="Setting" x:Uid="LabelSettings" Command="{Binding SettingsCommand}" />
         </CommandBar>
 
         <custom:FlipViewWithPageIndicator Grid.Row="1" 
+                                          Grid.Column="0"
+                                          SelectedImage="{Binding SelectedPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                           Images="{Binding Images}"/>
 
-        <CommandBar Grid.Row="2" DefaultLabelPosition="Right" OverflowButtonVisibility="Collapsed">
+        <CommandBar Grid.Row="2" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="2"
+                    DefaultLabelPosition="Right" 
+                    OverflowButtonVisibility="Collapsed">
             <CommandBar.Content>
                 <Grid>
                     <Grid.ColumnDefinitions>

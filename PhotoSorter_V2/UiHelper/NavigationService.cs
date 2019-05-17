@@ -16,6 +16,7 @@ namespace PhotoSorter_V2.UiHelper
             _pageDictionary = new Dictionary<string, Type>();
             Register(nameof(MainPage), typeof(MainPage));
             Register(nameof(SettingsPage), typeof(SettingsPage));
+            Register(nameof(EditPage), typeof(EditPage));
         }
 
         public void NavigateTo(string pageKey)

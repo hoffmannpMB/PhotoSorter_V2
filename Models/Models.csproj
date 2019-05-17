@@ -124,6 +124,8 @@
     <Compile Include="Implementations\AppSettingsModel.cs" />
     <Compile Include="Implementations\CameraModel.cs" />
     <Compile Include="ICameraModel.cs" />
+    <Compile Include="IMainPageModel.cs" />
+    <Compile Include="Implementations\MainPageModel.cs" />
     <Compile Include="IPhotoModel.cs" />
     <Compile Include="Implementations\Language.cs" />
     <Compile Include="Implementations\PhotoModel.cs" />

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using Models;
+using MVVM_Base;
 using System.Windows.Input;
 
 namespace ViewModels
@@ -6,6 +7,12 @@ namespace ViewModels
     public interface IMainPageViewModel
     {
         ICommand SettingsCommand { get; }
-        ObservableCollection<string> Images { get; set; }
+        ICommand SaveCommand { get; }
+        ICommand ImportCommand { get; }
+        ICommand EditCommand { get; }
+
+        IPhotoModel SelectedPhoto { get; set; }
+
+        IRangeObservableCollection<IPhotoModel> Images { get; }
     }
 }

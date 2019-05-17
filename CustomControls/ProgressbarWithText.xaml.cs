@@ -21,8 +21,8 @@ namespace CustomControls
 
         public double Value
         {
-            get { return (double) GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
+            get => (double) GetValue(ValueProperty);
+            set => SetValue(ValueProperty, value);
         }
 
 
@@ -36,8 +36,8 @@ namespace CustomControls
 
         public string Text
         {
-            get { return (string) GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get => (string) GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
         public static readonly DependencyProperty TextMarginProperty = DependencyProperty.Register(
@@ -45,8 +45,8 @@ namespace CustomControls
 
         public Thickness TextMargin
         {
-            get { return (Thickness) GetValue(TextMarginProperty); }
-            set { SetValue(TextMarginProperty, value); }
+            get => (Thickness) GetValue(TextMarginProperty);
+            set => SetValue(TextMarginProperty, value);
         }
     }
 }

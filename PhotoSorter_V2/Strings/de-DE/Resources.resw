@@ -75,4 +75,7 @@
   <data name="ComboBoxTimeZone.Header" xml:space="preserve">
     <value>Zeitzone</value>
   </data>
+  <data name="LabelEdit.Label" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
 </root>

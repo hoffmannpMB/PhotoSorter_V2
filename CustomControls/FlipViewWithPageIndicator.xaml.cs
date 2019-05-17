@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using Models;
+using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -14,12 +15,19 @@ namespace CustomControls
         }
 
         public static readonly DependencyProperty ImagesProperty = DependencyProperty.Register(
-            "Images", typeof(ObservableCollection<string>), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(ObservableCollection<string>)));
+            "Images", typeof(ObservableCollection<IPhotoModel>), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(ObservableCollection<string>)));
+        public static readonly DependencyProperty SelectedImageProperty = DependencyProperty.Register("SelectedImage", typeof(IPhotoModel), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(IPhotoModel)));
 
-        public ObservableCollection<string> Images
+        public ObservableCollection<IPhotoModel> Images
         {
-            get => (ObservableCollection<string>) GetValue(ImagesProperty);
+            get => (ObservableCollection<IPhotoModel>)GetValue(ImagesProperty);
             set => SetValue(ImagesProperty, value);
+        }
+
+        public IPhotoModel SelectedImage
+        {
+            get => (IPhotoModel)GetValue(SelectedImageProperty);
+            set => SetValue(SelectedImageProperty, value);
         }
     }
 }

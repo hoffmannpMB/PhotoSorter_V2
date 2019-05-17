@@ -1,8 +1,9 @@
 ﻿using System;
+using Models;
 
-namespace Models.Implementations
+namespace ViewModels.MockViewModels
 {
-    public class PhotoModel : IPhotoModel
+    public class MockPhotoViewModel : IPhotoViewModel
     {
         public string ImagePath { get; set; }
         public ICameraModel CameraModel { get; set; }
