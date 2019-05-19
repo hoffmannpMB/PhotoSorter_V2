@@ -10,7 +10,7 @@ namespace ViewModels.MockViewModels
     {
         public MockMainPageViewModel()
         {
-            Images = new RangeObservableCollection<IPhotoModel>
+            Images = new AdvancedObservableCollection<IPhotoModel>
             {
                 new PhotoModel { ImagePath = @"TestImages/leopard1.jpg", RedundantPhotos =
                 {

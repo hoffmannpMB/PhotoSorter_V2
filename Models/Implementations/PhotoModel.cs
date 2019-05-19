@@ -8,7 +8,7 @@ namespace Models.Implementations
     {
         public PhotoModel()
         {
-            RedundantPhotos = new RangeObservableCollection<IPhotoModel>();
+            RedundantPhotos = new AdvancedObservableCollection<IPhotoModel>();
         }
 
         public string ImagePath { get; set; }

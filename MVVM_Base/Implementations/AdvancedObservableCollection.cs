@@ -5,9 +5,9 @@ using System.Collections.Specialized;
 
 namespace MVVM_Base.Implementations
 {
-    public class RangeObservableCollection<T> : ObservableCollection<T>, IObservableCollection<T>
+    public class AdvancedObservableCollection<T> : ObservableCollection<T>, IObservableCollection<T>
     {
-        private bool _suppressNotification = false;
+        private bool _suppressNotification;
 
         protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
@@ -26,7 +26,7 @@ namespace MVVM_Base.Implementations
 
             _suppressNotification = true;
 
-            foreach (T item in collection)
+            foreach (var item in collection)
             {
                 Add(item);
             }

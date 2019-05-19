@@ -133,6 +133,9 @@
     <Compile Include="RedundantPhotos.xaml.cs">
       <DependentUpon>RedundantPhotos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RichEditBox.xaml.cs">
+      <DependentUpon>RichEditBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RedundantPhotos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RichEditBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

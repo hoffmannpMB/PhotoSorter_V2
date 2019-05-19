@@ -10,18 +10,30 @@
     d:DesignWidth="400">
 
     <Grid>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
         <TextBlock Text="{Binding Header, ElementName=UserControl}"
+                   Grid.ColumnSpan="2"
                    FontSize="30"
                    Margin="10 5"/>
 
-        <ListView Grid.Row="1" 
-                  ItemsSource="{Binding RedundantPhotosCollection, ElementName=UserControl}">
+
+        <CheckBox Grid.Row="1" Grid.Column="0" />
+        <AppBarButton Grid.Row="1" Grid.Column="1" Icon="Delete" />
+
+        <ListView Grid.Row="2" 
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2" 
+                  ItemsSource="{Binding RedundantPhotosCollection, ElementName=UserControl}" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" />
@@ -31,16 +43,13 @@
                 <DataTemplate>
                     <StackPanel>
                         <Image Source="{Binding ImagePath}" 
-                               MaxWidth="350">
-                            <Image.ContextFlyout>
-                                <MenuFlyout>
-                                    <MenuFlyoutItem Text="Delete" 
-                                                    Command="{Binding DeleteCommand}" />
-                                </MenuFlyout>
-                            </Image.ContextFlyout>
-                        </Image>
-                        <TextBlock Text="70% Similarity"
-                                   Margin="5"/>
+                               MaxWidth="350" />
+
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox />
+                            <TextBlock Text="70% Similarity"
+                                       Margin="5"/>
+                        </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

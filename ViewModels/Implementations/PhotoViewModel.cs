@@ -1,21 +1,16 @@
-﻿using System;
-using Models;
+﻿using Models;
 using Models.Implementations;
 using MVVM_Base;
 using MVVM_Base.Messenger;
+using System;
 
 namespace ViewModels.Implementations
 {
-    public class PhotoViewModel : ViewModelBase<PhotoModel>, IPhotoViewModel
+    public class PhotoViewModel : ViewModelBaseWithBackCommand<PhotoModel>, IPhotoViewModel
     {
-        public PhotoViewModel(IMessenger messenger)
+        public PhotoViewModel(IMessenger messenger, INavigationService navigationService) : base(navigationService)
         {
-            messenger.Register<IPhotoModel>(this, "SelectedPhoto", T);
-        }
-
-        private void T(IPhotoModel obj)
-        {
-            Model = (PhotoModel) obj;
+            messenger.Register<IPhotoModel>(this, "SelectedPhoto", p => Model = (PhotoModel)p);
         }
 
         public string ImagePath

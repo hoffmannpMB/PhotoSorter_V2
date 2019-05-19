@@ -30,7 +30,7 @@ namespace PhotoSorter_V2.UiHelper
             ? new MockSettingsViewModel()
             : _container.Resolve<ISettingsViewModel>();
 
-        public object PhotoViewModel => IsInDesignMode
+        public IPhotoViewModel PhotoViewModel => IsInDesignMode
             ? new MockPhotoViewModel()
             : _container.Resolve<IPhotoViewModel>();
 

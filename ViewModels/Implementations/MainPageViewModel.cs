@@ -21,10 +21,12 @@ namespace ViewModels.Implementations
             SettingsCommand = new RelayCommand(p => navigationService.NavigateTo("SettingsPage"));
             EditCommand = new RelayCommand(p => ExecuteEdit());
             ToggleShowRedundantPhotosCommand = new RelayCommand(p => IsPaneOpen = !IsPaneOpen);
+            SaveCommand = new RelayCommand(p => ExecuteSave());
+            ImportCommand = new RelayCommand(p => ExecuteImport());
 
-            Images = new RangeObservableCollection<IPhotoModel>
+            Images = new AdvancedObservableCollection<IPhotoModel>
             {
-                new PhotoModel { ImagePath = @"TestImages/leopard1.jpg", RedundantPhotos =
+                new PhotoModel { ImagePath = @"ms-appx:///Assets/leopard1.jpg", RedundantPhotos =
                 {
                     new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
                     new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
@@ -52,6 +54,18 @@ namespace ViewModels.Implementations
         {
             _navigationService.NavigateTo("EditPage");
             _messenger.Send(SelectedPhoto, nameof(SelectedPhoto));
+        }
+
+        private void ExecuteImport()
+        {
+            // import photos
+            // convert PhotoModels into PhotoViewModels
+        }
+
+        private void ExecuteSave()
+        {
+            // copy photos to project location
+            // create/edit xml
         }
 
         public bool IsPaneOpen

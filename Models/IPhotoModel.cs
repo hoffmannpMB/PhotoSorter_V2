@@ -1,5 +1,5 @@
-﻿using System;
-using MVVM_Base;
+﻿using MVVM_Base;
+using System;
 
 namespace Models
 {
