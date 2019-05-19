@@ -139,6 +139,12 @@
       <Version>6.2.8</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVVM_Base\MVVM_Base.csproj">
+      <Project>{803B936A-15A0-4D60-8C11-1174FDD65C4F}</Project>
+      <Name>MVVM_Base</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

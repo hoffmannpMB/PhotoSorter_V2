@@ -1,8 +1,8 @@
-﻿using System;
+﻿using MVVM_Base.Properties;
+using System;
 using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using MVVM_Base.Properties;
 
 namespace MVVM_Base
 {
@@ -32,11 +32,12 @@ namespace MVVM_Base
         {
             if (value == null) throw new ArgumentNullException(nameof(value));
 
-            var properties = _model.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+            var properties = GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+
+            _model = value;
 
             foreach (var property in properties)
             {
-                property.SetValue(_model, property.GetValue(value));
                 OnPropertyChanged(property.Name);
             }
         }

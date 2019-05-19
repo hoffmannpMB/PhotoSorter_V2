@@ -7,6 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <uiHelper:ViewModelLocator x:Key="ViewModelLocator" />
+            <uiHelper:InvertBooleanConverter x:Key="InvertBooleanConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

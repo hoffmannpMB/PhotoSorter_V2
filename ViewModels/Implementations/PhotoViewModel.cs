@@ -65,5 +65,7 @@ namespace ViewModels.Implementations
                 OnPropertyChanged();
             }
         }
+
+        public IObservableCollection<IPhotoModel> RedundantPhotos => Model.RedundantPhotos;
     }
 }

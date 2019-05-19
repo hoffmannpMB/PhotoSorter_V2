@@ -120,7 +120,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IRangeObservableCollection.cs" />
+    <Compile Include="IObservableCollection.cs" />
     <Compile Include="Implementations\RangeObservableCollection.cs" />
     <Compile Include="INavigationService.cs" />
     <Compile Include="Messenger\ActionIdentifier.cs" />

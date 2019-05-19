@@ -10,9 +10,11 @@ namespace ViewModels
         ICommand SaveCommand { get; }
         ICommand ImportCommand { get; }
         ICommand EditCommand { get; }
+        ICommand ToggleShowRedundantPhotosCommand { get; }
 
+        bool IsPaneOpen { get; set; }
         IPhotoModel SelectedPhoto { get; set; }
 
-        IRangeObservableCollection<IPhotoModel> Images { get; }
+        IObservableCollection<IPhotoModel> Images { get; }
     }
 }

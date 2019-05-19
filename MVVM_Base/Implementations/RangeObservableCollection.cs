@@ -5,7 +5,7 @@ using System.Collections.Specialized;
 
 namespace MVVM_Base.Implementations
 {
-    public class RangeObservableCollection<T> : ObservableCollection<T>, IRangeObservableCollection<T>
+    public class RangeObservableCollection<T> : ObservableCollection<T>, IObservableCollection<T>
     {
         private bool _suppressNotification = false;
 

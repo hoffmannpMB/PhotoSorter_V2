@@ -21,22 +21,36 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <CommandBar Grid.Row="0" IsOpen="True" IsSticky="True">
+        <CommandBar Grid.Row="0"
+                    Name="TopCommandoBar">
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal">
-                    <AppBarButton Icon="Import" x:Uid="LabelImport" Command="{Binding ImportCommand}" />
-                    <AppBarButton Icon="Save" x:Uid="LabelSave" Command="{Binding SaveCommand}" />
+                    <AppBarButton Icon="Import" x:Uid="LabelImport" Command="{Binding ImportCommand}" 
+                                  IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
+                    <AppBarButton Icon="Save" x:Uid="LabelSave" Command="{Binding SaveCommand}" 
+                                  IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
                     <AppBarSeparator />
-                    <AppBarButton Icon="Edit" x:Uid="LabelEdit" Command="{Binding EditCommand}" />
+                    <AppBarButton Icon="Edit" x:Uid="LabelEdit" Command="{Binding EditCommand}" 
+                                  IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
                 </StackPanel>
             </CommandBar.Content>
+            <AppBarButton Icon="List" x:Uid="LabelRedundantPhotos" Command="{Binding ToggleShowRedundantPhotosCommand}" />
             <AppBarButton Icon="Setting" x:Uid="LabelSettings" Command="{Binding SettingsCommand}" />
         </CommandBar>
 
-        <custom:FlipViewWithPageIndicator Grid.Row="1" 
-                                          Grid.Column="0"
-                                          SelectedImage="{Binding SelectedPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                          Images="{Binding Images}"/>
+        <SplitView Grid.Row="1" 
+                   Grid.Column="0"
+                   IsPaneOpen="{Binding IsPaneOpen}"
+                   DisplayMode="Inline"
+                   OpenPaneLength="400"
+                   PanePlacement="Right">
+            <SplitView.Pane>
+                <custom:RedundantPhotos x:Uid="HeaderRedundantPhotos"
+                                        RedundantPhotosCollection="{Binding SelectedPhoto.RedundantPhotos}"/>
+            </SplitView.Pane>
+            <custom:FlipViewWithPageIndicator SelectedImage="{Binding SelectedPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              Images="{Binding Images}"/>
+        </SplitView>
 
         <CommandBar Grid.Row="2" 
                     Grid.Column="0" 

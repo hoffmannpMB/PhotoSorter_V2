@@ -1,5 +1,6 @@
 ﻿using System;
 using Models;
+using MVVM_Base;
 
 namespace ViewModels
 {
@@ -9,5 +10,6 @@ namespace ViewModels
         ICameraModel CameraModel { get; set; }
         DateTime PhotoTaken { get; set; }
         string Description { get; set; }
+        IObservableCollection<IPhotoModel> RedundantPhotos { get; }
     }
 }

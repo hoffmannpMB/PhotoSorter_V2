@@ -79,4 +79,10 @@
   <data name="LabelEdit.Label" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="LabelRedundantPhotos.Label" xml:space="preserve">
+    <value>Redundant Photos</value>
+  </data>
+  <data name="HeaderRedundantPhotos.Header" xml:space="preserve">
+    <value>Redundant Photos</value>
+  </data>
 </root>

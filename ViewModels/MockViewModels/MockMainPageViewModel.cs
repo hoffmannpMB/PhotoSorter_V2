@@ -12,16 +12,24 @@ namespace ViewModels.MockViewModels
         {
             Images = new RangeObservableCollection<IPhotoModel>
             {
-                new PhotoModel { ImagePath = @"TestImages/leopard1.jpg" },
+                new PhotoModel { ImagePath = @"TestImages/leopard1.jpg", RedundantPhotos =
+                {
+                    new PhotoModel { ImagePath = @"TestImages/leopard1.jpg"},
+                    new PhotoModel { ImagePath = @"TestImages/leopard1.jpg"},
+                    new PhotoModel { ImagePath = @"TestImages/leopard1.jpg"}
+                }},
                 new PhotoModel { ImagePath = @"TestImages/leopard2.jpg" }
             };
+            IsPaneOpen = true;
         }
 
         public ICommand SettingsCommand { get; }
         public ICommand SaveCommand { get; }
         public ICommand ImportCommand { get; }
         public ICommand EditCommand { get; }
+        public ICommand ToggleShowRedundantPhotosCommand { get; }
+        public bool IsPaneOpen { get; set; }
         public IPhotoModel SelectedPhoto { get; set; }
-        public IRangeObservableCollection<IPhotoModel> Images { get; }
+        public IObservableCollection<IPhotoModel> Images { get; }
     }
 }
