@@ -25,13 +25,27 @@
                     Name="TopCommandoBar">
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal">
+
                     <AppBarButton Icon="Import" x:Uid="LabelImport" Command="{Binding ImportCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
+
                     <AppBarButton Icon="Save" x:Uid="LabelSave" Command="{Binding SaveCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
+
+                    <AppBarButton Icon="Folder" x:Uid="LabelSave" Command="{Binding OpenCommand}" 
+                                  IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
+
                     <AppBarSeparator />
+
                     <AppBarButton Icon="Edit" x:Uid="LabelEdit" Command="{Binding EditCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
+
+                    <AppBarButton Icon="Rotate" x:Uid="LabelEdit" Command="{Binding EditCommand}" 
+                                  IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
+
+                    <AppBarButton Icon="Delete" x:Uid="LabelEdit" Command="{Binding EditCommand}" 
+                                  IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
+
                 </StackPanel>
             </CommandBar.Content>
             <AppBarButton Icon="List" x:Uid="LabelRedundantPhotos" Command="{Binding ToggleShowRedundantPhotosCommand}" />

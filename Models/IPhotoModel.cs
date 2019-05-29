@@ -9,6 +9,7 @@ namespace Models
         ICameraModel CameraModel { get; set; }
         DateTime PhotoTaken { get; set; }
         string Description { get; set; }
+        float Similarity { get; set; }
         IObservableCollection<IPhotoModel> RedundantPhotos { get; }
     }
 }

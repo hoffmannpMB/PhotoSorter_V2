@@ -5,9 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="using:CustomControls.Converter"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <converter:SimilarityConverter x:Key="SimilarityConverter"/>
+    </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -47,7 +52,7 @@
 
                         <StackPanel Orientation="Horizontal">
                             <CheckBox />
-                            <TextBlock Text="70% Similarity"
+                            <TextBlock Text="{Binding Similarity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SimilarityConverter}}"
                                        Margin="5"/>
                         </StackPanel>
                     </StackPanel>
