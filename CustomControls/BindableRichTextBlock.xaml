@@ -10,6 +10,6 @@
     d:DesignWidth="400">
 
     <Grid>
-        <RichEditBox Name="RichTextBlock" />
+        <RichEditBox Name="RichTextBlock" IsEnabled="False"/>
     </Grid>
 </UserControl>
