@@ -126,9 +126,14 @@
     <Compile Include="ComboBoxWithHeaderAndLabel.xaml.cs">
       <DependentUpon>ComboBoxWithHeaderAndLabel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="FlipViewWithPageIndicator.xaml.cs">
       <DependentUpon>FlipViewWithPageIndicator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ImageWithDescription.xaml.cs">
+      <DependentUpon>ImageWithDescription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\PercentageConverter.cs" />
     <Compile Include="ProgressbarWithText.xaml.cs">
       <DependentUpon>ProgressbarWithText.xaml</DependentUpon>
     </Compile>
@@ -159,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FlipViewWithPageIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ImageWithDescription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,6 +202,7 @@
       <Name>MVVM_Base</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

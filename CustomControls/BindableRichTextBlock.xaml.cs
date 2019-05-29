@@ -26,11 +26,5 @@ namespace CustomControls
 
             RichTextBlock.Document.SetText(TextSetOptions.FormatRtf, Text);
         }
-
-        private void BindableRichTextBlock_OnTextChanged(object sender, RoutedEventArgs e)
-        {
-            RichTextBlock.Document.GetText(TextGetOptions.FormatRtf, out var text);
-            Text = text;
-        }
     }
 }
