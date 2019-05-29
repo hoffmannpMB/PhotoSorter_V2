@@ -36,7 +36,7 @@
 
         <custom:RichEditBox Grid.Row="1" 
                             Grid.Column="1" 
-                            Text="Hallo Welt2" />
+                            Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <CommandBar Grid.Row="2" 
                     Grid.Column="0" 

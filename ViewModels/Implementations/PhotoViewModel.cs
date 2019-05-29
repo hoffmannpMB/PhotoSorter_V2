@@ -3,15 +3,31 @@ using Models.Implementations;
 using MVVM_Base;
 using MVVM_Base.Messenger;
 using System;
+using System.Windows.Input;
 
 namespace ViewModels.Implementations
 {
-    public class PhotoViewModel : ViewModelBaseWithBackCommand<PhotoModel>, IPhotoViewModel
+    public class PhotoViewModel : ViewModelBase<PhotoModel>, IPhotoViewModel
     {
-        public PhotoViewModel(IMessenger messenger, INavigationService navigationService) : base(navigationService)
+        private readonly IMessenger _messenger;
+        private readonly INavigationService _navigationService;
+
+        public PhotoViewModel(IMessenger messenger, INavigationService navigationService)
         {
+            _messenger = messenger;
+            _navigationService = navigationService;
+
             messenger.Register<IPhotoModel>(this, "SelectedPhoto", p => Model = (PhotoModel)p);
+            BackCommand = new RelayCommand(p => ExecuteBack());
         }
+
+        private void ExecuteBack()
+        {
+            _messenger.Send(Description, "PhotoDescription");
+            _navigationService.NavigateBack();
+        }
+
+        public ICommand BackCommand { get; }
 
         public string ImagePath
         {

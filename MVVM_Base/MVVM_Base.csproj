@@ -120,7 +120,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ViewModelBaseWithBackCommand.cs" />
     <Compile Include="IObservableCollection.cs" />
     <Compile Include="Implementations\AdvancedObservableCollection.cs" />
     <Compile Include="INavigationService.cs" />

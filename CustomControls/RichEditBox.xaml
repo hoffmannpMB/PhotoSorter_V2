@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="RichEditBox_OnLoaded"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -19,6 +20,16 @@
         <StackPanel Grid.Row="0" 
                     Orientation="Horizontal">
 
+            <ComboBox Name="FontFamily"
+                      Margin="5"
+                      VerticalAlignment="Top"
+                      SelectionChanged="FontFamily_OnSelectionChanged"/>
+
+            <TextBox Name="FontSizeBox"
+                     Margin="5"
+                     VerticalAlignment="Top"
+                     Text="{Binding TextFontSize, ElementName=UserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
             <AppBarButton Icon="Bold"
                           Click="BoldButton_OnClick"/>
             <AppBarButton Icon="Italic"
@@ -29,7 +40,10 @@
         </StackPanel>
 
         <RichEditBox Grid.Row="1" 
-                     Name="Editor"/>
+                     Name="Editor"
+                     TextChanged="Editor_OnTextChanged"
+                     SelectionHighlightColorWhenNotFocused="DarkGray"
+                     SelectionChanged="Editor_OnSelectionChanged"/>
 
     </Grid>
 </UserControl>
