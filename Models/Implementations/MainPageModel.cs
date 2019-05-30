@@ -1,8 +1,39 @@
-﻿namespace Models.Implementations
+﻿using MVVM_Base;
+using MVVM_Base.Implementations;
+
+namespace Models.Implementations
 {
     public class MainPageModel : IMainPageModel
     {
+        public MainPageModel()
+        {
+            Images = new AdvancedObservableCollection<IPhotoModel>
+            {
+                new PhotoModel { ImagePath = @"ms-appx:///Assets/leopard1.jpg", Description = @"{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil Segoe UI;}{\f1\fnil\fcharset0 Segoe UI;}}
+                                                                                                {\colortbl ;\red255\green255\blue255;}
+                                                                                                {\*\generator Riched20 10.0.17763}\viewkind4\uc1 
+                                                                                                \pard\tx720\cf1\f0\fs21 Hallo Welt\f1\fs20  Anders \i Italic \fs40 Gro\'df\i0\f0\fs20\par
+                                                                                                }",
+                    RedundantPhotos =
+                    {
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" }
+                    }},
+                new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg" },
+                new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard1.jpg" },
+                new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg" },
+                new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg" }
+            };
+        }
+
         public IPhotoModel SelectedPhoto { get; set; }
+        public IObservableCollection<IPhotoModel> Images { get; }
         public bool IsPaneOpen { get; set; }
     }
 }

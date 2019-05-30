@@ -1,6 +1,6 @@
 ﻿using Models.Implementations;
 using MVVM_Base;
-using System.Collections.ObjectModel;
+using MVVM_Base.Implementations;
 using System.Linq;
 using Windows.Globalization;
 using Language = Models.Implementations.Language;
@@ -11,7 +11,7 @@ namespace ViewModels.Implementations
     {
         public AppSettingsViewModel()
         {
-            Languages = new ObservableCollection<Language>
+            Languages = new AdvancedObservableCollection<Language>
             {
                 new Language { DisplayName = "Deutsch", LanguageCode = "de-DE"},
                 new Language { DisplayName = "English", LanguageCode = "en-US"}
@@ -21,7 +21,7 @@ namespace ViewModels.Implementations
                 Languages.FirstOrDefault(l => l.LanguageCode == ApplicationLanguages.PrimaryLanguageOverride) ?? Languages.First();
         }
 
-        public ObservableCollection<Language> Languages { get; set; }
+        public IObservableCollection<Language> Languages { get; set; }
 
         public Language SelectedLanguage
         {

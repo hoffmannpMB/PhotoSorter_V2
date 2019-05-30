@@ -1,11 +1,11 @@
-﻿using Models.Implementations;
-using System.Collections.ObjectModel;
-using Models;
+﻿using Models;
+using Models.Implementations;
+using MVVM_Base;
 
 namespace ViewModels
 {
     public interface IAppSettingsViewModel : IAppSettingsModel
     {
-        ObservableCollection<Language> Languages { get; set; }
+        IObservableCollection<Language> Languages { get; set; }
     }
 }

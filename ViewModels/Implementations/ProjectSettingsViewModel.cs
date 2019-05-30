@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using Models;
 using MVVM_Base;
+using MVVM_Base.Implementations;
+using System;
 
 namespace ViewModels.Implementations
 {
@@ -9,7 +10,7 @@ namespace ViewModels.Implementations
         public ProjectSettingsViewModel()
         {
 
-            CameraViewModels = new ObservableCollection<ICameraViewModel>
+            CameraModels = new AdvancedObservableCollection<ICameraModel>
             {
                 new CameraViewModel
                 {
@@ -44,6 +45,6 @@ namespace ViewModels.Implementations
             };
         }
 
-        public ObservableCollection<ICameraViewModel> CameraViewModels { get; }
+        public IObservableCollection<ICameraModel> CameraModels { get; }
     }
 }

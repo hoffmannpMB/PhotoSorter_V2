@@ -1,5 +1,4 @@
 ﻿using System.Windows.Input;
-using ViewModels.Implementations;
 
 namespace ViewModels.MockViewModels
 {

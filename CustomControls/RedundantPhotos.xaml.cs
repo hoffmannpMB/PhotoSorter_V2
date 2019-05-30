@@ -1,6 +1,6 @@
 ﻿using MVVM_Base;
-using ViewModels;
 using Windows.UI.Xaml;
+using Models;
 
 // Die Elementvorlage "Benutzersteuerelement" wird unter https://go.microsoft.com/fwlink/?LinkId=234236 dokumentiert.
 
@@ -8,7 +8,7 @@ namespace CustomControls
 {
     public sealed partial class RedundantPhotos
     {
-        public static readonly DependencyProperty RedundantPhotosCollectionProperty = DependencyProperty.Register("RedundantPhotosCollection", typeof(IObservableCollection<IRedundantPhotoViewModel>), typeof(RedundantPhotos), new PropertyMetadata(default(IObservableCollection<IRedundantPhotoViewModel>)));
+        public static readonly DependencyProperty RedundantPhotosCollectionProperty = DependencyProperty.Register("RedundantPhotosCollection", typeof(IObservableCollection<IRedundantPhotoModel>), typeof(RedundantPhotos), new PropertyMetadata(default(IObservableCollection<IRedundantPhotoModel>)));
         public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(string), typeof(RedundantPhotos), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty IsSelectAllCheckedProperty = DependencyProperty.Register("IsSelectAllChecked", typeof(bool?), typeof(RedundantPhotos), new PropertyMetadata(default(bool?)));
 
@@ -17,9 +17,9 @@ namespace CustomControls
             InitializeComponent();
         }
 
-        public IObservableCollection<IRedundantPhotoViewModel> RedundantPhotosCollection
+        public IObservableCollection<IRedundantPhotoModel> RedundantPhotosCollection
         {
-            get => (IObservableCollection<IRedundantPhotoViewModel>)GetValue(RedundantPhotosCollectionProperty);
+            get => (IObservableCollection<IRedundantPhotoModel>)GetValue(RedundantPhotosCollectionProperty);
             set => SetValue(RedundantPhotosCollectionProperty, value);
         }
 

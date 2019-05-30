@@ -1,6 +1,5 @@
 ﻿// Die Elementvorlage "Benutzersteuerelement" wird unter https://go.microsoft.com/fwlink/?LinkId=234236 dokumentiert.
 
-using System.Globalization;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
 

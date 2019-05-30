@@ -1,10 +1,10 @@
-﻿using System.Collections.ObjectModel;
-using Models;
+﻿using Models;
+using MVVM_Base;
 
 namespace ViewModels
 {
     public interface IProjectSettingsViewModel : IProjectSettingsModel
     {
-        ObservableCollection<ICameraViewModel> CameraViewModels { get; }
+        IObservableCollection<ICameraModel> CameraModels { get; }
     }
 }

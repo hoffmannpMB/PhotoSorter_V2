@@ -1,5 +1,7 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using MVVM_Base;
+using MVVM_Base.Implementations;
+using System;
+using Models;
 using ViewModels.Implementations;
 
 namespace ViewModels.MockViewModels
@@ -8,7 +10,7 @@ namespace ViewModels.MockViewModels
     {
         public MockProjectSettingsViewModel()
         {
-            CameraViewModels = new ObservableCollection<ICameraViewModel>
+            CameraModels = new AdvancedObservableCollection<ICameraModel>
             {
                 new CameraViewModel
                 {
@@ -43,6 +45,6 @@ namespace ViewModels.MockViewModels
             };
         }
 
-        public ObservableCollection<ICameraViewModel> CameraViewModels { get; }
+        public IObservableCollection<ICameraModel> CameraModels { get; }
     }
 }
