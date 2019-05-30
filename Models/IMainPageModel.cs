@@ -1,4 +1,4 @@
-﻿namespace Models.Implementations
+﻿namespace Models
 {
     public interface IMainPageModel
     {

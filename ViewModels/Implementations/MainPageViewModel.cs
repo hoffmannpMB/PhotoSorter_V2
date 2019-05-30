@@ -35,14 +35,14 @@ namespace ViewModels.Implementations
                                                                                                 }",
                     RedundantPhotos =
                     {
-                        new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new PhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" }
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" }
                     }},
                 new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg" },
                 new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard1.jpg" },

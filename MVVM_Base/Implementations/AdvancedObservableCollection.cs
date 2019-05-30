@@ -33,5 +33,15 @@ namespace MVVM_Base.Implementations
             _suppressNotification = false;
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
+
+        public IObservableCollection<TNew> Cast<TNew>(Func<T, TNew> factory) where TNew : T
+        {
+            var newCollection = new AdvancedObservableCollection<TNew>();
+
+            for (var i = 0; i < Items.Count; i++)
+                newCollection[i] = factory(Items[i]);
+
+            return newCollection;
+        }
     }
 }

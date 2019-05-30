@@ -130,6 +130,8 @@
     <Compile Include="Implementations\Language.cs" />
     <Compile Include="Implementations\PhotoModel.cs" />
     <Compile Include="IProjectSettingsModel.cs" />
+    <Compile Include="Implementations\RedundantPhotoModel.cs" />
+    <Compile Include="IRedundantPhotoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Implementations\SettingsModel.cs" />
     <EmbeddedResource Include="Properties\Models.rd.xml" />

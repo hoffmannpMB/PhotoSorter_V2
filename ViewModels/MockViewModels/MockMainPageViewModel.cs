@@ -14,9 +14,9 @@ namespace ViewModels.MockViewModels
             {
                 new PhotoModel { ImagePath = @"TestImages/leopard1.jpg", RedundantPhotos =
                 {
-                    new PhotoModel { ImagePath = @"TestImages/leopard1.jpg"},
-                    new PhotoModel { ImagePath = @"TestImages/leopard1.jpg"},
-                    new PhotoModel { ImagePath = @"TestImages/leopard1.jpg"}
+                    new RedundantPhotoModel { ImagePath = @"TestImages/leopard1.jpg"},
+                    new RedundantPhotoModel { ImagePath = @"TestImages/leopard1.jpg"},
+                    new RedundantPhotoModel { ImagePath = @"TestImages/leopard1.jpg"}
                 }},
                 new PhotoModel { ImagePath = @"TestImages/leopard2.jpg" }
             };

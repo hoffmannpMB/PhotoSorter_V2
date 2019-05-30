@@ -31,8 +31,11 @@
                    FontSize="30"
                    Margin="10 5"/>
 
+        <CheckBox Grid.Row="1" 
+                  Grid.Column="0"
+                  IsThreeState="True"
+                  IsChecked="{Binding IsSelectAllChecked, ElementName=UserControl}"/>
 
-        <CheckBox Grid.Row="1" Grid.Column="0" />
         <AppBarButton Grid.Row="1" Grid.Column="1" Icon="Delete" />
 
         <ListView Grid.Row="2" 
@@ -47,14 +50,23 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Image Source="{Binding ImagePath}" 
-                               MaxWidth="350" />
 
                         <StackPanel Orientation="Horizontal">
-                            <CheckBox />
-                            <TextBlock Text="{Binding Similarity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SimilarityConverter}}"
-                                       Margin="5"/>
+
+                            <CheckBox Width="2" 
+                                      IsChecked="{Binding IsChecked}"/>
+
+                            <Image Margin="-80 5 5 5" 
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch"
+                                   Source="{Binding ImagePath}" 
+                                   MaxWidth="350" />
+
                         </StackPanel>
+
+                        <TextBlock HorizontalAlignment="Center"
+                                   Text="{Binding Similarity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SimilarityConverter}}"
+                                   Margin="5"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

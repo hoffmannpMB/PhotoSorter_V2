@@ -2,9 +2,7 @@
 using MVVM_Base;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Input;
 using Windows.Globalization;
-using Windows.Storage;
 using Language = Models.Implementations.Language;
 
 namespace ViewModels.Implementations

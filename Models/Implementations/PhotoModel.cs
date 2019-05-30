@@ -8,7 +8,7 @@ namespace Models.Implementations
     {
         public PhotoModel()
         {
-            RedundantPhotos = new AdvancedObservableCollection<IPhotoModel>();
+            RedundantPhotos = new AdvancedObservableCollection<IRedundantPhotoModel>();
             Similarity = 70;
         }
 
@@ -17,6 +17,6 @@ namespace Models.Implementations
         public DateTime PhotoTaken { get; set; }
         public string Description { get; set; }
         public float Similarity { get; set; }
-        public IObservableCollection<IPhotoModel> RedundantPhotos { get; }
+        public IObservableCollection<IRedundantPhotoModel> RedundantPhotos { get; }
     }
 }

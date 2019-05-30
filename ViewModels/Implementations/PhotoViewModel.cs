@@ -77,6 +77,18 @@ namespace ViewModels.Implementations
             }
         }
 
-        public IObservableCollection<IPhotoModel> RedundantPhotos => Model.RedundantPhotos;
+        public float Similarity
+        {
+            get => Model.Similarity;
+            set
+            {
+                if (Math.Abs(value - Model.Similarity) < 0.2) return;
+
+                Model.Similarity = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public IObservableCollection<IRedundantPhotoModel> RedundantPhotos => Model.RedundantPhotos;
     }
 }

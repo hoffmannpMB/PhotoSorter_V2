@@ -32,6 +32,7 @@ namespace PhotoSorter_V2
 
         private static void BuildHelper(ContainerBuilder builder)
         {
+            builder.RegisterType<ViewModelFactory>().AsImplementedInterfaces();
             builder.RegisterType<NavigationService>().AsImplementedInterfaces();
             builder.RegisterType<Messenger>().AsImplementedInterfaces().SingleInstance();
         }
