@@ -12,27 +12,44 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-        <converter:SimilarityConverter x:Key="SimilarityConverter"/>
+        <converter:RedundantPhotosCountConverter x:Key="RedundantPhotosCountConverter"/>
     </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="3*"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <FlipView Grid.Row="0"
+        <TextBox Grid.Row="0"
+                 Margin="5 2"
+                 PlaceholderText="{Binding PhotoNamePlaceHolder, ElementName=UserControl}"
+                 Text="{Binding SelectedImage.ImageName}"/>
+
+        <FlipView Grid.Row="1"
                   Name="FlipView"
                   SelectedValue="{Binding SelectedImage, ElementName=UserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Images, ElementName=UserControl}">
             <FlipView.ItemTemplate>
                 <DataTemplate>
-                    <customControls:ImageWithDescription RtfText="{Binding Description}"
-                                                         Source="{Binding ImagePath}"/>
+                    <customControls:ImageWithDescription Margin="5 2"
+                                                         ImagePathHeader="{Binding ImagePathHeader, ElementName=UserControl}"
+                                                         DateTakenHeader="{Binding DateTakenHeader, ElementName=UserControl}"
+                                                         CameraModelHeader="{Binding CameraModelHeader, ElementName=UserControl}"
+                                                         DescriptionHeader="{Binding DescriptionHeader, ElementName=UserControl}"
+                                                         ImagePathPlaceHolder="{Binding ImagePathPlaceHolder, ElementName=UserControl}"
+                                                         CameraModelPlaceHolder="{Binding CameraModelPlaceHolder, ElementName=UserControl}"
+                                                         ImagePathText="{Binding ImagePath}"
+                                                         Source="{Binding ImagePath}"
+                                                         DateTakenDate="{Binding DateTaken}"
+                                                         CameraModelName="{Binding CameraModel}"
+                                                         RtfText="{Binding Description}"
+                                                         IsPaneOpen="{Binding IsPaneOpen}"/>
                 </DataTemplate>
             </FlipView.ItemTemplate>
         </FlipView>
 
-        <ListView Grid.Row="1" 
+        <ListView Grid.Row="2"
                   ItemsSource="{Binding Images, ElementName=UserControl}"
                   SelectedItem="{Binding ElementName=FlipView, Path=SelectedItem, Mode=TwoWay}">
             <ListView.ItemsPanel>
@@ -43,12 +60,13 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Image Source="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                        <Image Margin="5 2"
+                               Source="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                MaxWidth="120"
                                MaxHeight="120"/>
 
-                        <TextBlock Text="{Binding Similarity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SimilarityConverter}}"
-                                   Margin="5"/>
+                        <TextBlock Margin="5 2"
+                                   Text="{Binding RedundantPhotos.Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource RedundantPhotosCountConverter}}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

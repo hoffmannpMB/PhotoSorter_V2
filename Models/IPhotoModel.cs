@@ -5,11 +5,12 @@ namespace Models
 {
     public interface IPhotoModel
     {
+        string ImageName { get; set; }
         string ImagePath { get; set; }
         ICameraModel CameraModel { get; set; }
-        DateTime PhotoTaken { get; set; }
+        DateTime DateTaken { get; set; }
         string Description { get; set; }
-        float Similarity { get; set; }
+        bool IsPaneOpen { get; set; }
         IObservableCollection<IRedundantPhotoModel> RedundantPhotos { get; }
     }
 }

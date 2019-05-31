@@ -28,7 +28,7 @@ namespace CustomControls
         public RichEditBox()
         {
             InitializeComponent();
-            FontFamily.ItemsSource = _fontNames;
+            FontFamilyCbx.ItemsSource = _fontNames;
         }
 
         private void BoldButton_OnClick(object sender, RoutedEventArgs e)
@@ -69,14 +69,14 @@ namespace CustomControls
             var selectedText = Editor.Document.Selection;
 
             var charFormat = selectedText?.CharacterFormat ?? Editor.Document.GetDefaultCharacterFormat();
-            FontFamily.SelectedValue = charFormat.Name;
+            FontFamilyCbx.SelectedValue = charFormat.Name;
             FontSizeBox.Text = charFormat.Size.ToString(CultureInfo.CurrentCulture);
         }
 
         private void FontFamily_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var charFormat = Editor.Document.Selection?.CharacterFormat ?? Editor.Document.GetDefaultCharacterFormat();
-            charFormat.Name = FontFamily.SelectedValue?.ToString() ?? "Courier New";
+            charFormat.Name = FontFamilyCbx.SelectedValue?.ToString() ?? "Courier New";
         }
 
         private void Editor_OnTextChanged(object sender, RoutedEventArgs e)

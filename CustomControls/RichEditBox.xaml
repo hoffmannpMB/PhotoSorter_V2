@@ -20,7 +20,7 @@
         <StackPanel Grid.Row="0" 
                     Orientation="Horizontal">
 
-            <ComboBox Name="FontFamily"
+            <ComboBox Name="FontFamilyCbx"
                       Margin="5"
                       VerticalAlignment="Top"
                       SelectionChanged="FontFamily_OnSelectionChanged"/>

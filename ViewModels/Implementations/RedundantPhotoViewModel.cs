@@ -1,4 +1,5 @@
-﻿using Models.Implementations;
+﻿using System;
+using Models.Implementations;
 using MVVM_Base;
 
 namespace ViewModels.Implementations
@@ -22,7 +23,7 @@ namespace ViewModels.Implementations
             get => Model.Similarity;
             set
             {
-                if (value == Model.Similarity) return;
+                if (Math.Abs(value - Model.Similarity) < 0.2) return;
 
                 Model.Similarity = value;
                 OnPropertyChanged();

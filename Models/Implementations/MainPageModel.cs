@@ -16,14 +16,14 @@ namespace Models.Implementations
                                                                                                 }",
                     RedundantPhotos =
                     {
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg" }
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 70, IsChecked = false },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 20, IsChecked = true },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 40, IsChecked = true },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 80, IsChecked = false },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 10, IsChecked = false },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 30, IsChecked = false },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 50, IsChecked = false },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 90, IsChecked = false }
                     }},
                 new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg" },
                 new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard1.jpg" },

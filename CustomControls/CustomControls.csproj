@@ -127,6 +127,7 @@
       <DependentUpon>ComboBoxWithHeaderAndLabel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converter\RedundantPhotosCountConverter.cs" />
     <Compile Include="Converter\SimilarityConverter.cs" />
     <Compile Include="FlipViewWithPageIndicator.xaml.cs">
       <DependentUpon>FlipViewWithPageIndicator.xaml</DependentUpon>

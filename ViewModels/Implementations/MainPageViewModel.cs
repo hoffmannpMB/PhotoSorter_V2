@@ -12,12 +12,13 @@ namespace ViewModels.Implementations
         private readonly INavigationService _navigationService;
         private readonly IMessenger _messenger;
 
-        public MainPageViewModel(INavigationService navigationService, IMessenger messenger)
+        public MainPageViewModel(INavigationService navigationService, IMessenger messenger, IViewModelFactory factory)
         {
             _navigationService = navigationService;
             _messenger = messenger;
 
             messenger.Register<string>(this, "PhotoDescription", p => { SelectedPhoto.Description = p; });
+            Model.Images.Cast(factory.Create);
 
             SettingsCommand = new RelayCommand(p => navigationService.NavigateTo("SettingsPage"));
             EditCommand = new RelayCommand(p => ExecuteEdit());

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using MVVM_Base;
 using MVVM_Base.Implementations;
 
@@ -9,14 +10,15 @@ namespace Models.Implementations
         public PhotoModel()
         {
             RedundantPhotos = new AdvancedObservableCollection<IRedundantPhotoModel>();
-            Similarity = 70;
+            ImageName = Path.GetFileName(ImagePath);
         }
 
+        public string ImageName { get; set; }
         public string ImagePath { get; set; }
         public ICameraModel CameraModel { get; set; }
-        public DateTime PhotoTaken { get; set; }
+        public DateTime DateTaken { get; set; }
         public string Description { get; set; }
-        public float Similarity { get; set; }
+        public bool IsPaneOpen { get; set; }
         public IObservableCollection<IRedundantPhotoModel> RedundantPhotos { get; }
     }
 }

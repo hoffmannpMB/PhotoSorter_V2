@@ -5,32 +5,75 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:converters="using:CustomControls.Converter"
     MaxWidth="{Binding MaxWidth, ElementName=UserControl}"
     MaxHeight="{Binding MaxHeight, ElementName=UserControl}"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-    <UserControl.Resources>
-        <converters:PercentageConverter x:Key="PercentageConverter"/>
-        <converters:TextToVisibilityConverter x:Key="TextConverter"/>
-    </UserControl.Resources>
 
-    <Grid Name="ParentGrid">
+    <SplitView DisplayMode="Inline" 
+                   PanePlacement="Right"
+                   OpenPaneLength="300"
+                   IsPaneOpen="{Binding IsPaneOpen, ElementName=UserControl}">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+        <SplitView.Pane>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBox Grid.Row="0" 
+                         Margin="5 0 0 5"
+                         Header="{Binding ImagePathHeader, ElementName=UserControl}"
+                         PlaceholderText="{Binding ImagePathPlaceHolder, ElementName=UserControl}"
+                         Text="{Binding ImagePathText, ElementName=UserControl}"/>
+
+                <StackPanel Grid.Row="1">
+
+                    <DatePicker Margin="5 0 0 5"
+                                Name="DateTakenDatePicker"
+                                Header="{Binding DateTakenHeader, ElementName=UserControl}"
+                                Date="{Binding DateTakenDate, ElementName=UserControl}"/>
+
+                    <TimePicker Margin="5 0 0 5"
+                                Width="{Binding ActualWidth, ElementName=DateTakenDatePicker}"
+                                Time="{Binding DateTakenDate, ElementName=UserControl}"/>
+
+                </StackPanel>
+
+                <TextBox Grid.Row="2" 
+                         IsEnabled="False"
+                         x:Uid="TextBoxCameraModel"
+                         Margin="5 0 0 5"
+                         PlaceholderText="{Binding CameraModelPlaceHolder, ElementName=UserControl}"
+                         Text="{Binding CameraModelName, ElementName=UserControl}">
+                    <TextBox.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Foreground="White"
+                                       Text="{Binding CameraModelHeader, ElementName=UserControl}" />
+                        </DataTemplate>
+                    </TextBox.HeaderTemplate>
+                </TextBox>
+
+                <RichEditBox Grid.Row="3" 
+                             IsEnabled="False"
+                             Margin="5 0 0 0"
+                             HorizontalContentAlignment="Stretch"
+                             Loaded="FrameworkElement_OnLoaded">
+                    <RichEditBox.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Foreground="White"
+                                       Text="{Binding DescriptionHeader, ElementName=UserControl}"/>
+                        </DataTemplate>
+                    </RichEditBox.HeaderTemplate>
+                </RichEditBox>
+            </Grid>
+        </SplitView.Pane>
 
         <Image Source="{Binding Source, ElementName=UserControl}" />
 
-        <RichEditBox Grid.Column="1" 
-                     Margin="5"
-                     IsEnabled="False"
-                     HorizontalContentAlignment="Stretch"
-                     Visibility="{Binding RtfText, ElementName=UserControl, Converter={StaticResource TextConverter}}"
-                     Width="{Binding Path=ActualWidth, ElementName=ParentGrid, Converter={StaticResource PercentageConverter}, ConverterParameter='0,3'}"
-                     Loaded="FrameworkElement_OnLoaded"/>
-    </Grid>
+    </SplitView>
 </UserControl>

@@ -5,6 +5,7 @@ using BusinessLogic;
 using MVVM_Base.Messenger;
 using Repository;
 using ViewModels;
+using ViewModels.Helper;
 
 namespace PhotoSorter_V2
 {

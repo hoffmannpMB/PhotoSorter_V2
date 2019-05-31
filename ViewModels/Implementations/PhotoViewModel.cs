@@ -29,6 +29,18 @@ namespace ViewModels.Implementations
 
         public ICommand BackCommand { get; }
 
+        public string ImageName
+        {
+            get => Model.ImageName;
+            set
+            {
+                if (value == ImageName) return;
+
+                Model.ImageName = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string ImagePath
         {
             get => Model.ImagePath;
@@ -53,14 +65,14 @@ namespace ViewModels.Implementations
             }
         }
 
-        public DateTime PhotoTaken
+        public DateTime DateTaken
         {
-            get => Model.PhotoTaken;
+            get => Model.DateTaken;
             set
             {
-                if (value == PhotoTaken) return;
+                if (value == DateTaken) return;
 
-                Model.PhotoTaken = value;
+                Model.DateTaken = value;
                 OnPropertyChanged();
             }
         }
@@ -77,14 +89,14 @@ namespace ViewModels.Implementations
             }
         }
 
-        public float Similarity
+        public bool IsPaneOpen
         {
-            get => Model.Similarity;
+            get => Model.IsPaneOpen;
             set
             {
-                if (Math.Abs(value - Model.Similarity) < 0.2) return;
+                if (value == IsPaneOpen) return;
 
-                Model.Similarity = value;
+                Model.IsPaneOpen = value;
                 OnPropertyChanged();
             }
         }

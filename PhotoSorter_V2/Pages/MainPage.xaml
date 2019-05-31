@@ -26,34 +26,64 @@
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal">
 
-                    <AppBarButton Icon="Import" x:Uid="LabelImport" Command="{Binding ImportCommand}" 
+                    <AppBarButton Icon="Import" 
+                                  x:Uid="LabelImport" 
+                                  Command="{Binding ImportCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
-                    <AppBarButton Icon="Save" x:Uid="LabelSave" Command="{Binding SaveCommand}" 
+                    <AppBarButton Icon="Save" 
+                                  x:Uid="LabelSave" 
+                                  Command="{Binding SaveCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
-                    <AppBarButton Icon="Folder" x:Uid="LabelSave" Command="{Binding OpenCommand}" 
+                    <AppBarButton Icon="Folder" 
+                                  x:Uid="LabelSave" 
+                                  Command="{Binding OpenCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
                     <AppBarSeparator />
 
-                    <AppBarButton Icon="Edit" x:Uid="LabelEdit" Command="{Binding EditCommand}" 
+                    <AppBarButton Icon="Edit" 
+                                  x:Uid="LabelEdit" 
+                                  Command="{Binding EditCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
-                    <AppBarButton Icon="Rotate" x:Uid="LabelEdit" Command="{Binding EditCommand}" 
+                    <AppBarButton Icon="Rotate" 
+                                  x:Uid="LabelEdit" 
+                                  Command="{Binding EditCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
-                    <AppBarButton Icon="Delete" x:Uid="LabelEdit" Command="{Binding EditCommand}" 
+                    <AppBarButton Icon="Delete" 
+                                  x:Uid="LabelEdit" 
+                                  Command="{Binding EditCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
                 </StackPanel>
             </CommandBar.Content>
-            <AppBarButton Icon="List" x:Uid="LabelRedundantPhotos" Command="{Binding ToggleShowRedundantPhotosCommand}" />
-            <AppBarButton Icon="Setting" x:Uid="LabelSettings" Command="{Binding SettingsCommand}" />
+
+            <AppBarToggleButton Icon="AlignCenter"
+                                x:Uid="LabelShowDetails"
+                                IsChecked="{Binding SelectedPhoto.IsPaneOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <AppBarToggleButton Icon="ShowBCC"
+                                x:Uid="LabelShowDetails"
+                                IsChecked="{Binding SelectedPhoto.IsPaneOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <AppBarButton Icon="List" 
+                          x:Uid="LabelRedundantPhotos" 
+                          Command="{Binding ToggleShowRedundantPhotosCommand}" />
+
+            <AppBarSeparator />
+
+            <AppBarButton Icon="Setting" 
+                          x:Uid="LabelSettings" 
+                          Command="{Binding SettingsCommand}" />
+
         </CommandBar>
 
         <SplitView Grid.Row="1" 
                    Grid.Column="0"
+                   Margin="5"
                    IsPaneOpen="{Binding IsPaneOpen}"
                    DisplayMode="Inline"
                    OpenPaneLength="400"
@@ -62,7 +92,8 @@
                 <custom:RedundantPhotos x:Uid="HeaderRedundantPhotos"
                                         RedundantPhotosCollection="{Binding SelectedPhoto.RedundantPhotos}"/>
             </SplitView.Pane>
-            <custom:FlipViewWithPageIndicator SelectedImage="{Binding SelectedPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            <custom:FlipViewWithPageIndicator x:Uid="FlipViewWithPageIndicator"
+                                              SelectedImage="{Binding SelectedPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                               Images="{Binding Images}"/>
         </SplitView>
 
