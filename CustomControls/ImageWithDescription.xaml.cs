@@ -20,6 +20,8 @@ namespace CustomControls
         public static readonly DependencyProperty CameraModelPlaceHolderProperty = DependencyProperty.Register("CameraModelPlaceHolder", typeof(string), typeof(ImageWithDescription), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty CameraModelNameProperty = DependencyProperty.Register("CameraModelName", typeof(string), typeof(ImageWithDescription), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty DescriptionHeaderProperty = DependencyProperty.Register("DescriptionHeader", typeof(string), typeof(ImageWithDescription), new PropertyMetadata(default(string)));
+        public static readonly DependencyProperty ShowDetailsProperty = DependencyProperty.Register("ShowDetails", typeof(Visibility), typeof(ImageWithDescription), new PropertyMetadata(default(Visibility)));
+        public static readonly DependencyProperty ShowDescriptionProperty = DependencyProperty.Register("ShowDescription", typeof(Visibility), typeof(ImageWithDescription), new PropertyMetadata(default(Visibility)));
 
         public ImageWithDescription()
         {
@@ -87,16 +89,28 @@ namespace CustomControls
         }
 
         public string CameraModelName
-       {
-           get => (string)GetValue(CameraModelNameProperty);
-           set => SetValue(CameraModelNameProperty, value);
-       }
+        {
+            get => (string)GetValue(CameraModelNameProperty);
+            set => SetValue(CameraModelNameProperty, value);
+        }
 
         public string DescriptionHeader
-       {
-           get => (string)GetValue(DescriptionHeaderProperty);
-           set => SetValue(DescriptionHeaderProperty, value);
-       }
+        {
+            get => (string)GetValue(DescriptionHeaderProperty);
+            set => SetValue(DescriptionHeaderProperty, value);
+        }
+
+        public Visibility ShowDetails
+        {
+            get => (Visibility)GetValue(ShowDetailsProperty);
+            set => SetValue(ShowDetailsProperty, value);
+        }
+
+        public Visibility ShowDescription
+        {
+            get => (Visibility)GetValue(ShowDescriptionProperty);
+            set => SetValue(ShowDescriptionProperty, value);
+        }
 
         private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
         {

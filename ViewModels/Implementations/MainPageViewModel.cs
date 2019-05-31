@@ -22,16 +22,24 @@ namespace ViewModels.Implementations
 
             SettingsCommand = new RelayCommand(p => navigationService.NavigateTo("SettingsPage"));
             EditCommand = new RelayCommand(p => ExecuteEdit());
-            ToggleShowRedundantPhotosCommand = new RelayCommand(p => IsPaneOpen = !IsPaneOpen);
             SaveCommand = new RelayCommand(p => ExecuteSave());
             ImportCommand = new RelayCommand(p => ExecuteImport());
+            OpenCommand = new RelayCommand(p => ExecuteOpen());
+            RotateCommand = new RelayCommand(p => ExecuteRotate());
+            DeleteCommand = new RelayCommand(p => ExecuteDelete());
+            OrderByCommand = new RelayCommand(p => ExecuteOrderBy());
+            CompareCommand = new RelayCommand(p => ExecuteCompare());
         }
 
         public ICommand SettingsCommand { get; }
         public ICommand SaveCommand { get; }
         public ICommand ImportCommand { get; }
         public ICommand EditCommand { get; }
-        public ICommand ToggleShowRedundantPhotosCommand { get; }
+        public ICommand OpenCommand { get; }
+        public ICommand RotateCommand { get; }
+        public ICommand DeleteCommand { get; }
+        public ICommand OrderByCommand { get; }
+        public ICommand CompareCommand { get; }
 
         private void ExecuteEdit()
         {
@@ -51,16 +59,24 @@ namespace ViewModels.Implementations
             // create/edit xml
         }
 
-        public bool IsPaneOpen
+        private void ExecuteOpen()
         {
-            get => Model.IsPaneOpen;
-            set
-            {
-                if (value == Model.IsPaneOpen) return;
+        }
 
-                Model.IsPaneOpen = value;
-                OnPropertyChanged();
-            }
+        private void ExecuteRotate()
+        {
+        }
+
+        private void ExecuteDelete()
+        {
+        }
+
+        private void ExecuteOrderBy()
+        {
+        }
+
+        private void ExecuteCompare()
+        {
         }
 
         public IPhotoModel SelectedPhoto
@@ -72,8 +88,49 @@ namespace ViewModels.Implementations
 
                 Model.SelectedPhoto = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(ShowDetailsPane));
             }
         }
+
+        public bool ShowRedundantPhotos
+        {
+            get => Model.ShowRedundantPhotos;
+            set
+            {
+                if (value == Model.ShowRedundantPhotos) return;
+
+                Model.ShowRedundantPhotos = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool ShowDetails
+        {
+            get => Model.ShowDetails;
+            set
+            {
+                if (value == ShowDetails) return;
+
+                Model.ShowDetails = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(ShowDetailsPane));
+            }
+        }
+
+        public bool ShowDescription
+        {
+            get => Model.ShowDescription;
+            set
+            {
+                if (value == ShowDescription) return;
+
+                Model.ShowDescription = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(ShowDetailsPane));
+            }
+        }
+
+        public bool ShowDetailsPane => Model.ShowDetailsPane;
 
         public IObservableCollection<IPhotoModel> Images => Model.Images;
     }

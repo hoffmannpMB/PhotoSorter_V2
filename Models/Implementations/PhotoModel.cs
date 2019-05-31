@@ -18,7 +18,6 @@ namespace Models.Implementations
         public ICameraModel CameraModel { get; set; }
         public DateTime DateTaken { get; set; }
         public string Description { get; set; }
-        public bool IsPaneOpen { get; set; }
         public IObservableCollection<IRedundantPhotoModel> RedundantPhotos { get; }
     }
 }

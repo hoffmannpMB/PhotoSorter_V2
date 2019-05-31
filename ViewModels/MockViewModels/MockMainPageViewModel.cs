@@ -20,15 +20,22 @@ namespace ViewModels.MockViewModels
                 }},
                 new PhotoModel { ImagePath = @"TestImages/leopard2.jpg" }
             };
-            IsPaneOpen = true;
+            ShowRedundantPhotos = true;
         }
 
         public ICommand SettingsCommand { get; }
         public ICommand SaveCommand { get; }
         public ICommand ImportCommand { get; }
         public ICommand EditCommand { get; }
-        public ICommand ToggleShowRedundantPhotosCommand { get; }
-        public bool IsPaneOpen { get; set; }
+        public ICommand OpenCommand { get; }
+        public ICommand RotateCommand { get; }
+        public ICommand DeleteCommand { get; }
+        public ICommand OrderByCommand { get; }
+        public ICommand CompareCommand { get; }
+        public bool ShowRedundantPhotos { get; set; }
+        public bool ShowDetailsPane { get; }
+        public bool ShowDetails { get; set; }
+        public bool ShowDescription { get; set; }
         public IPhotoModel SelectedPhoto { get; set; }
         public IObservableCollection<IPhotoModel> Images { get; }
     }

@@ -106,4 +106,37 @@
   <data name="FlipViewWithPageIndicator.CameraModelPlaceHolder" xml:space="preserve">
     <value>Camera Model not available</value>
   </data>
+  <data name="LabelDateTaken.Label" xml:space="preserve">
+    <value>Date Taken</value>
+  </data>
+  <data name="LabelImageName" xml:space="preserve">
+    <value>Image Name</value>
+  </data>
+  <data name="LabelCameraModel" xml:space="preserve">
+    <value>Camera Model</value>
+  </data>
+  <data name="LabelRotate.Label" xml:space="preserve">
+    <value>Rotate</value>
+  </data>
+  <data name="LabelDelete.Label" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="LabelCompareImages.Label" xml:space="preserve">
+    <value>Compare Images</value>
+  </data>
+  <data name="TextOrderByDate.Text" xml:space="preserve">
+    <value>Order By Date</value>
+  </data>
+  <data name="TextOrderByImageName.Text" xml:space="preserve">
+    <value>Order By Image Name</value>
+  </data>
+  <data name="TextOrderByCameraModel.Text" xml:space="preserve">
+    <value>Order By Camera Model</value>
+  </data>
+  <data name="LabelShowDetails.Label" xml:space="preserve">
+    <value>Show Details</value>
+  </data>
+  <data name="LabelShowDescription.Label" xml:space="preserve">
+    <value>Show Description</value>
+  </data>
 </root>

@@ -9,6 +9,10 @@ namespace ViewModels
         ICommand SaveCommand { get; }
         ICommand ImportCommand { get; }
         ICommand EditCommand { get; }
-        ICommand ToggleShowRedundantPhotosCommand { get; }
+        ICommand OpenCommand { get; }
+        ICommand RotateCommand { get; }
+        ICommand DeleteCommand { get; }
+        ICommand OrderByCommand { get; }
+        ICommand CompareCommand { get; }
     }
 }

@@ -89,18 +89,6 @@ namespace ViewModels.Implementations
             }
         }
 
-        public bool IsPaneOpen
-        {
-            get => Model.IsPaneOpen;
-            set
-            {
-                if (value == IsPaneOpen) return;
-
-                Model.IsPaneOpen = value;
-                OnPropertyChanged();
-            }
-        }
-
         public IObservableCollection<IRedundantPhotoModel> RedundantPhotos => Model.RedundantPhotos;
     }
 }

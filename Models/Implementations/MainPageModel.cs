@@ -1,4 +1,5 @@
-﻿using MVVM_Base;
+﻿using System;
+using MVVM_Base;
 using MVVM_Base.Implementations;
 
 namespace Models.Implementations
@@ -25,15 +26,18 @@ namespace Models.Implementations
                         new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 50, IsChecked = false },
                         new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 90, IsChecked = false }
                     }},
-                new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg" },
-                new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard1.jpg" },
+                new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg", Description = "Hallo Welt" },
+                new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard1.jpg", DateTaken = DateTime.Now, CameraModel = new CameraModel { Manufacturer = "Canon", CameraType = "IP2980" }},
                 new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg" },
                 new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg" }
             };
         }
 
+        public bool ShowDescription { get; set; }
         public IPhotoModel SelectedPhoto { get; set; }
         public IObservableCollection<IPhotoModel> Images { get; }
-        public bool IsPaneOpen { get; set; }
+        public bool ShowRedundantPhotos { get; set; }
+        public bool ShowDetails { get; set; }
+        public bool ShowDetailsPane => (ShowDescription && !string.IsNullOrWhiteSpace(SelectedPhoto.Description)) | ShowDetails;
     }
 }

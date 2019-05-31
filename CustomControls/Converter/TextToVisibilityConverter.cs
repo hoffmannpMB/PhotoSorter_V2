@@ -4,16 +4,16 @@ using Windows.UI.Xaml.Data;
 
 namespace CustomControls.Converter
 {
-    public class BooleanToVisibilityConverter : IValueConverter
+    public class TextToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            return (bool) value ? Visibility.Visible : Visibility.Collapsed;
+            return string.IsNullOrWhiteSpace((string)value) ? Visibility.Collapsed : Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            return (Visibility)value == Visibility.Visible;
+            return !string.IsNullOrWhiteSpace((string)value) ? Visibility.Collapsed : Visibility.Visible;
         }
     }
 }

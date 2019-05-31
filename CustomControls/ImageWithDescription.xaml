@@ -27,19 +27,20 @@
 
                 <TextBox Grid.Row="0" 
                          Margin="5 0 0 5"
+                         Visibility="{Binding ShowDetails, ElementName=UserControl}"
                          Header="{Binding ImagePathHeader, ElementName=UserControl}"
                          PlaceholderText="{Binding ImagePathPlaceHolder, ElementName=UserControl}"
                          Text="{Binding ImagePathText, ElementName=UserControl}"/>
 
-                <StackPanel Grid.Row="1">
+                <StackPanel Grid.Row="1"
+                            Visibility="{Binding ShowDetails, ElementName=UserControl}">
 
                     <DatePicker Margin="5 0 0 5"
-                                Name="DateTakenDatePicker"
                                 Header="{Binding DateTakenHeader, ElementName=UserControl}"
                                 Date="{Binding DateTakenDate, ElementName=UserControl}"/>
 
                     <TimePicker Margin="5 0 0 5"
-                                Width="{Binding ActualWidth, ElementName=DateTakenDatePicker}"
+                                HorizontalAlignment="Stretch"
                                 Time="{Binding DateTakenDate, ElementName=UserControl}"/>
 
                 </StackPanel>
@@ -48,6 +49,7 @@
                          IsEnabled="False"
                          x:Uid="TextBoxCameraModel"
                          Margin="5 0 0 5"
+                         Visibility="{Binding ShowDetails, ElementName=UserControl}"
                          PlaceholderText="{Binding CameraModelPlaceHolder, ElementName=UserControl}"
                          Text="{Binding CameraModelName, ElementName=UserControl}">
                     <TextBox.HeaderTemplate>
@@ -61,6 +63,7 @@
                 <RichEditBox Grid.Row="3" 
                              IsEnabled="False"
                              Margin="5 0 0 0"
+                             Visibility="{Binding ShowDescription, ElementName=UserControl}"
                              HorizontalContentAlignment="Stretch"
                              Loaded="FrameworkElement_OnLoaded">
                     <RichEditBox.HeaderTemplate>

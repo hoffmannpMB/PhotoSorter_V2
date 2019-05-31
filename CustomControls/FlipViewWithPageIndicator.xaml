@@ -44,7 +44,9 @@
                                                          DateTakenDate="{Binding DateTaken}"
                                                          CameraModelName="{Binding CameraModel}"
                                                          RtfText="{Binding Description}"
-                                                         IsPaneOpen="{Binding IsPaneOpen}"/>
+                                                         IsPaneOpen="{Binding ElementName=UserControl, Path=DataContext.ShowDetailsPane}"
+                                                         ShowDetails="{Binding ElementName=UserControl, Path=DataContext.ShowDetails}"
+                                                         ShowDescription="{Binding ElementName=UserControl, Path=DataContext.ShowDescription}"/>
                 </DataTemplate>
             </FlipView.ItemTemplate>
         </FlipView>

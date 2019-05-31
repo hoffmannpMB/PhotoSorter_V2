@@ -49,29 +49,53 @@
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
                     <AppBarButton Icon="Rotate" 
-                                  x:Uid="LabelEdit" 
-                                  Command="{Binding EditCommand}" 
+                                  x:Uid="LabelRotate" 
+                                  Command="{Binding RotateCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
                     <AppBarButton Icon="Delete" 
-                                  x:Uid="LabelEdit" 
-                                  Command="{Binding EditCommand}" 
+                                  x:Uid="LabelDelete" 
+                                  Command="{Binding DeleteCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
                 </StackPanel>
             </CommandBar.Content>
 
+            <AppBarButton Icon="Switch"
+                          x:Uid="LabelCompareImages"
+                          Command="{Binding CompareCommand}"/>
+
             <AppBarToggleButton Icon="AlignCenter"
-                                x:Uid="LabelShowDetails"
-                                IsChecked="{Binding SelectedPhoto.IsPaneOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                x:Uid="LabelShowDescription"
+                                IsChecked="{Binding ShowDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <AppBarToggleButton Icon="ShowBCC"
+            <AppBarToggleButton Icon="PreviewLink"
                                 x:Uid="LabelShowDetails"
-                                IsChecked="{Binding SelectedPhoto.IsPaneOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                IsChecked="{Binding ShowDetails, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <AppBarButton Icon="List" 
-                          x:Uid="LabelRedundantPhotos" 
-                          Command="{Binding ToggleShowRedundantPhotosCommand}" />
+            <AppBarToggleButton Icon="List" 
+                                x:Uid="LabelRedundantPhotos" 
+                                IsChecked="{Binding ShowRedundantPhotos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <AppBarToggleButton Icon="Sort"
+                                Label="Order By">
+                <AppBarToggleButton.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Icon="Calendar" 
+                                        x:Uid="TextOrderByDate"
+                                        Command="{Binding OrderByCommand}" 
+                                        CommandParameter="{Binding SelectedPhoto.DateTaken}"/>
+                        <MenuFlyoutItem Icon="Street" 
+                                        x:Uid="TextOrderByImageName"
+                                        Command="{Binding OrderByCommand}" 
+                                        CommandParameter="{Binding SelectedPhoto.ImageName}"/>
+                        <MenuFlyoutItem Icon="Camera" 
+                                        x:Uid="TextOrderByCameraModel"
+                                        Command="{Binding OrderByCommand}" 
+                                        CommandParameter="{Binding SelectedPhoto.CameraModel}"/>
+                    </MenuFlyout>
+                </AppBarToggleButton.ContextFlyout>
+            </AppBarToggleButton>
 
             <AppBarSeparator />
 
@@ -84,14 +108,16 @@
         <SplitView Grid.Row="1" 
                    Grid.Column="0"
                    Margin="5"
-                   IsPaneOpen="{Binding IsPaneOpen}"
+                   IsPaneOpen="{Binding ShowRedundantPhotos}"
                    DisplayMode="Inline"
                    OpenPaneLength="400"
                    PanePlacement="Right">
+
             <SplitView.Pane>
                 <custom:RedundantPhotos x:Uid="HeaderRedundantPhotos"
                                         RedundantPhotosCollection="{Binding SelectedPhoto.RedundantPhotos}"/>
             </SplitView.Pane>
+
             <custom:FlipViewWithPageIndicator x:Uid="FlipViewWithPageIndicator"
                                               SelectedImage="{Binding SelectedPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                               Images="{Binding Images}"/>
@@ -102,14 +128,19 @@
                     Grid.ColumnSpan="2"
                     DefaultLabelPosition="Right" 
                     OverflowButtonVisibility="Collapsed">
+
             <CommandBar.Content>
                 <Grid>
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <custom:ProgressbarWithText Value="80" Width="300" Height="100" TextMargin="120 10"/>
+                    <custom:ProgressbarWithText Value="80" 
+                                                Width="300" 
+                                                Height="100" 
+                                                TextMargin="120 10"/>
                 </Grid>
             </CommandBar.Content>
         </CommandBar>
