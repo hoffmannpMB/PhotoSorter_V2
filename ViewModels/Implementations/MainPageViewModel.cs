@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using System.Linq;
+using Models;
 using Models.Implementations;
 using MVVM_Base;
 using MVVM_Base.Messenger;
@@ -61,6 +62,7 @@ namespace ViewModels.Implementations
 
         private void ExecuteOpen()
         {
+            SelectedPhoto.RedundantPhotos.First().IsChecked = !SelectedPhoto.RedundantPhotos.First().IsChecked;
         }
 
         private void ExecuteRotate()

@@ -41,20 +41,26 @@
         <ListView Grid.Row="2" 
                   Grid.Column="0"
                   Grid.ColumnSpan="2" 
+                  SelectionMode="Extended"
                   ItemsSource="{Binding RedundantPhotosCollection, ElementName=UserControl}" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
+            <ListView.Resources>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="IsSelected" Value="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Style>
+            </ListView.Resources>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
 
                         <StackPanel Orientation="Horizontal">
 
-                            <CheckBox Width="2" 
-                                      IsChecked="{Binding IsChecked}"/>
+                            <CheckBox Name="IsSelectedCbx"
+                                      IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Image Margin="-80 5 5 5" 
                                    HorizontalAlignment="Stretch"
