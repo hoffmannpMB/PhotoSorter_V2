@@ -11,6 +11,7 @@ namespace ViewModels.MockViewModels
         public ICommand EditCommand { get; }
         public string ImageName { get; set; }
         public string ImagePath { get; set; }
+        public float Rotation { get; set; }
         public ICameraModel CameraModel { get; set; }
         public DateTime DateTaken { get; set; }
         public string Description { get; set; }

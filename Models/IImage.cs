@@ -4,5 +4,6 @@
     {
         string ImageName { get; set; }
         string ImagePath { get; set; }
+        float Rotation { get; set; }
     }
 }

@@ -1,13 +1,12 @@
 ﻿using Models;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 
 // Die Elementvorlage "Benutzersteuerelement" wird unter https://go.microsoft.com/fwlink/?LinkId=234236 dokumentiert.
 
 namespace CustomControls
 {
-    public sealed partial class FlipViewWithPageIndicator : UserControl
+    public sealed partial class FlipViewWithPageIndicator
     {
         public FlipViewWithPageIndicator()
         {
@@ -24,6 +23,7 @@ namespace CustomControls
         public static readonly DependencyProperty CameraModelPlaceHolderProperty = DependencyProperty.Register("CameraModelPlaceHolder", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty PhotoNamePlaceHolderProperty = DependencyProperty.Register("PhotoNamePlaceHolder", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty PhotoNameProperty = DependencyProperty.Register("PhotoName", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
+        public static readonly DependencyProperty ImageRotationProperty = DependencyProperty.Register("ImageRotation", typeof(float), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(float)));
 
         public ObservableCollection<IPhotoModel> Images
         {
@@ -83,6 +83,12 @@ namespace CustomControls
         {
             get => (string)GetValue(PhotoNameProperty);
             set => SetValue(PhotoNameProperty, value);
+        }
+
+        public float ImageRotation
+        {
+            get => (float)GetValue(ImageRotationProperty);
+            set => SetValue(ImageRotationProperty, value);
         }
     }
 }

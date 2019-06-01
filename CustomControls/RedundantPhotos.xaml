@@ -35,10 +35,14 @@
                     <StackPanel Background="{Binding Similarity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ColorConverter}}">
 
                         <Image Margin="5" 
+                               MaxWidth="350"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch"
-                               Source="{Binding ImagePath}" 
-                               MaxWidth="350">
+                               RenderTransformOrigin="0.5 0.5"
+                               Source="{Binding ImagePath}" >
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="{Binding ImageRotation, ElementName=UserControl}" />
+                            </Image.RenderTransform>
                         </Image>
 
                         <TextBlock HorizontalAlignment="Center"

@@ -51,6 +51,7 @@ namespace ViewModels.Implementations
 
         private void ExecuteRotate()
         {
+            SelectedPhoto.Rotation = (SelectedPhoto.Rotation + 90) % 360;
         }
 
         private void ExecuteDelete(IImage image)

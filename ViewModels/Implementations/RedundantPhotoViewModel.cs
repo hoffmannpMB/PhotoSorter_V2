@@ -32,6 +32,18 @@ namespace ViewModels.Implementations
             }
         }
 
+        public float Rotation
+        {
+            get => Model.Rotation;
+            set
+            {
+                if (Math.Abs(value - Rotation) < 0.1) return;
+
+                Model.Rotation = value;
+                OnPropertyChanged();
+            }
+        }
+
         public float Similarity
         {
             get => Model.Similarity;

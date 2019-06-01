@@ -39,6 +39,7 @@
                                                          DescriptionHeader="{Binding DescriptionHeader, ElementName=UserControl}"
                                                          ImagePathPlaceHolder="{Binding ImagePathPlaceHolder, ElementName=UserControl}"
                                                          CameraModelPlaceHolder="{Binding CameraModelPlaceHolder, ElementName=UserControl}"
+                                                         ImageRotation="{Binding ImageRotation, ElementName=UserControl}"
                                                          ImagePathText="{Binding ImagePath}"
                                                          Source="{Binding ImagePath}"
                                                          DateTakenDate="{Binding DateTaken}"
@@ -63,9 +64,14 @@
                 <DataTemplate>
                     <StackPanel>
                         <Image Margin="5 2"
-                               Source="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                MaxWidth="120"
-                               MaxHeight="120"/>
+                               MaxHeight="120"
+                               RenderTransformOrigin="0.5 0.5"
+                               Source="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="{Binding ImageRotation, ElementName=UserControl}"/>
+                            </Image.RenderTransform>
+                        </Image>
 
                         <TextBlock Margin="5 2"
                                    Text="{Binding RedundantPhotos.Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource RedundantPhotosCountConverter}}"/>

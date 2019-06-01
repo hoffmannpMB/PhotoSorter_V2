@@ -22,6 +22,7 @@ namespace CustomControls
         public static readonly DependencyProperty DescriptionHeaderProperty = DependencyProperty.Register("DescriptionHeader", typeof(string), typeof(ImageWithDescription), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty ShowDetailsProperty = DependencyProperty.Register("ShowDetails", typeof(Visibility), typeof(ImageWithDescription), new PropertyMetadata(default(Visibility)));
         public static readonly DependencyProperty ShowDescriptionProperty = DependencyProperty.Register("ShowDescription", typeof(Visibility), typeof(ImageWithDescription), new PropertyMetadata(default(Visibility)));
+        public static readonly DependencyProperty ImageRotationProperty = DependencyProperty.Register("ImageRotation", typeof(float), typeof(ImageWithDescription), new PropertyMetadata(default(float)));
 
         public ImageWithDescription()
         {
@@ -110,6 +111,12 @@ namespace CustomControls
         {
             get => (Visibility)GetValue(ShowDescriptionProperty);
             set => SetValue(ShowDescriptionProperty, value);
+        }
+
+        public float ImageRotation
+        {
+            get => (float)GetValue(ImageRotationProperty);
+            set => SetValue(ImageRotationProperty, value);
         }
 
         private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)

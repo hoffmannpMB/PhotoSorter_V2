@@ -76,7 +76,11 @@
             </Grid>
         </SplitView.Pane>
 
-        <Image Source="{Binding Source, ElementName=UserControl}" />
+        <Image Source="{Binding Source, ElementName=UserControl}" RenderTransformOrigin="0.5 0.5">
+            <Image.RenderTransform>
+                <RotateTransform Angle="{Binding ImageRotation, ElementName=UserControl}"/>
+            </Image.RenderTransform>
+        </Image>
 
     </SplitView>
 </UserControl>
