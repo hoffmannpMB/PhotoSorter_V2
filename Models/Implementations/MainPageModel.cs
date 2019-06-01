@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MVVM_Base;
 using MVVM_Base.Implementations;
 
@@ -17,14 +18,14 @@ namespace Models.Implementations
                                                                                                 }",
                     RedundantPhotos =
                     {
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 70, IsChecked = false },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 20, IsChecked = true },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 40, IsChecked = true },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 80, IsChecked = false },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 10, IsChecked = false },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 30, IsChecked = false },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 50, IsChecked = false },
-                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 90, IsChecked = false }
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard2.jpg", Similarity = 70 },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 20 },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 40 },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 80 },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 10 },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 30 },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 50 },
+                        new RedundantPhotoModel { ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 90 }
                     }},
                 new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard2.jpg", Description = "Hallo Welt" },
                 new PhotoModel { ImagePath =  "ms-appx:///Assets/leopard1.jpg", DateTaken = DateTime.Now, CameraModel = new CameraModel { Manufacturer = "Canon", CameraType = "IP2980" }},

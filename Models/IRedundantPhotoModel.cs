@@ -1,9 +1,7 @@
 ﻿namespace Models
 {
-    public interface IRedundantPhotoModel
+    public interface IRedundantPhotoModel : IImage
     {
-        string ImagePath { get; set; }
         float Similarity { get; set; }
-        bool? IsChecked { get; set; }
     }
 }

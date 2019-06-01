@@ -9,6 +9,11 @@ namespace ViewModels.MockViewModels
         {
         }
 
+        public void NavigateTo<TViewModel>(string pageKey, TViewModel viewModel) where TViewModel : ViewModelBase
+        {
+            
+        }
+
         public void NavigateBack()
         {
         }

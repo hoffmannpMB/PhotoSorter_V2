@@ -24,7 +24,7 @@
         <TextBox Grid.Row="0"
                  Margin="5 2"
                  PlaceholderText="{Binding PhotoNamePlaceHolder, ElementName=UserControl}"
-                 Text="{Binding SelectedImage.ImageName}"/>
+                 Text="{Binding PhotoName, ElementName=UserControl}"/>
 
         <FlipView Grid.Row="1"
                   Name="FlipView"

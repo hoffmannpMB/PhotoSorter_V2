@@ -8,7 +8,6 @@ namespace ViewModels
         ICommand SettingsCommand { get; }
         ICommand SaveCommand { get; }
         ICommand ImportCommand { get; }
-        ICommand EditCommand { get; }
         ICommand OpenCommand { get; }
         ICommand RotateCommand { get; }
         ICommand DeleteCommand { get; }

@@ -17,52 +17,28 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="30"
+                   Margin="10 5"
+                   Text="{Binding Header, ElementName=UserControl}"/>
 
-        <TextBlock Text="{Binding Header, ElementName=UserControl}"
-                   Grid.ColumnSpan="2"
-                   FontSize="30"
-                   Margin="10 5"/>
-
-        <CheckBox Grid.Row="1" 
+        <ListView Grid.Row="1" 
                   Grid.Column="0"
-                  IsThreeState="True"
-                  IsChecked="{Binding IsSelectAllChecked, ElementName=UserControl}"/>
-
-        <AppBarButton Grid.Row="1" Grid.Column="1" Icon="Delete" />
-
-        <ListView Grid.Row="2" 
-                  Grid.Column="0"
-                  Grid.ColumnSpan="2" 
-                  SelectionMode="Extended"
+                  SelectedValue="{Binding SelectedRedundantImage, ElementName=UserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding RedundantPhotosCollection, ElementName=UserControl}" >
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical" />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
 
-                        <StackPanel Orientation="Horizontal">
-
-                            <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                            <Image Margin="-80 5 5 5" 
-                                   HorizontalAlignment="Stretch"
-                                   VerticalAlignment="Stretch"
-                                   Source="{Binding ImagePath}" 
-                                   MaxWidth="350" />
-
-                        </StackPanel>
+                        <Image Margin="5" 
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               Source="{Binding ImagePath}" 
+                               MaxWidth="350">
+                        </Image>
 
                         <TextBlock HorizontalAlignment="Center"
                                    Text="{Binding Similarity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SimilarityConverter}}"
@@ -71,5 +47,15 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <!-- To catch the key press event -->
+        <AppBarButton Grid.Row="1" 
+                      Grid.Column="0" 
+                      Command="{Binding DeleteItemCommand, ElementName=UserControl}"
+                      CommandParameter="{Binding SelectedRedundantImage, ElementName=UserControl}">
+            <AppBarButton.KeyboardAccelerators>
+                <KeyboardAccelerator Key="Delete" />
+            </AppBarButton.KeyboardAccelerators>
+        </AppBarButton>
     </Grid>
 </UserControl>

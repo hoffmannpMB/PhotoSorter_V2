@@ -121,6 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IAppSettingsModel.cs" />
+    <Compile Include="IImage.cs" />
     <Compile Include="Implementations\AppSettingsModel.cs" />
     <Compile Include="Implementations\CameraModel.cs" />
     <Compile Include="ICameraModel.cs" />

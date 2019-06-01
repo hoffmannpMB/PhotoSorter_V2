@@ -1,11 +1,25 @@
-﻿using System;
-using Models.Implementations;
+﻿using Models.Implementations;
 using MVVM_Base;
+using System;
+using System.Windows.Input;
+using Windows.UI.Xaml.Input;
 
 namespace ViewModels.Implementations
 {
     public class RedundantPhotoViewModel : ViewModelBase<RedundantPhotoModel>, IRedundantPhotoViewModel
     {
+        public string ImageName
+        {
+            get => Model.ImageName;
+            set
+            {
+                if (value == Model.ImageName) return;
+
+                Model.ImageName = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string ImagePath
         {
             get => Model.ImagePath;
@@ -30,16 +44,6 @@ namespace ViewModels.Implementations
             }
         }
 
-        public bool? IsChecked
-        {
-            get => Model.IsChecked;
-            set
-            {
-                if (value == Model.IsChecked) return;
-
-                Model.IsChecked = value;
-                OnPropertyChanged();
-            }
-        }
+        public ICommand DeleteCommand { get; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using MVVM_Base;
+using MVVM_Base.Properties;
 using PhotoSorter_V2.Pages;
 
 namespace PhotoSorter_V2.UiHelper
@@ -22,6 +23,13 @@ namespace PhotoSorter_V2.UiHelper
         public void NavigateTo(string pageKey)
         {
             var rootFrame = Window.Current.Content as Frame;
+            rootFrame?.Navigate(_pageDictionary[pageKey]);
+        }
+
+        public void NavigateTo<TViewModel>(string pageKey, [NotNull] TViewModel viewModel) where TViewModel : ViewModelBase
+        {
+            var rootFrame = Window.Current.Content as Frame;
+            rootFrame.DataContext = viewModel;
             rootFrame?.Navigate(_pageDictionary[pageKey]);
         }
 

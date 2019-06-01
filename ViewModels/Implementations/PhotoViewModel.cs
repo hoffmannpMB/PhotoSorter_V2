@@ -19,6 +19,7 @@ namespace ViewModels.Implementations
 
             messenger.Register<IPhotoModel>(this, "SelectedPhoto", p => Model = (PhotoModel)p);
             BackCommand = new RelayCommand(p => ExecuteBack());
+            EditCommand = new RelayCommand(p => ExecuteEdit());
         }
 
         private void ExecuteBack()
@@ -27,7 +28,14 @@ namespace ViewModels.Implementations
             _navigationService.NavigateBack();
         }
 
+        private void ExecuteEdit()
+        {
+            _navigationService.NavigateTo("EditPage", this);
+        }
+
         public ICommand BackCommand { get; }
+
+        public ICommand EditCommand { get; }
 
         public string ImageName
         {
@@ -85,6 +93,18 @@ namespace ViewModels.Implementations
                 if (value == Description) return;
 
                 Model.Description = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public IRedundantPhotoModel SelectedRedundantPhoto
+        {
+            get => Model.SelectedRedundantPhoto;
+            set
+            {
+                if (value == SelectedRedundantPhoto) return;
+
+                Model.SelectedRedundantPhoto = value;
                 OnPropertyChanged();
             }
         }

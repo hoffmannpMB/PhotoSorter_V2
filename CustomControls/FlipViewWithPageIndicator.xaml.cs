@@ -23,6 +23,7 @@ namespace CustomControls
         public static readonly DependencyProperty DescriptionHeaderProperty = DependencyProperty.Register("DescriptionHeader", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty CameraModelPlaceHolderProperty = DependencyProperty.Register("CameraModelPlaceHolder", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty PhotoNamePlaceHolderProperty = DependencyProperty.Register("PhotoNamePlaceHolder", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
+        public static readonly DependencyProperty PhotoNameProperty = DependencyProperty.Register("PhotoName", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
 
         public ObservableCollection<IPhotoModel> Images
         {
@@ -76,6 +77,12 @@ namespace CustomControls
         {
             get => (string)GetValue(PhotoNamePlaceHolderProperty);
             set => SetValue(PhotoNamePlaceHolderProperty, value);
+        }
+
+        public string PhotoName
+        {
+            get => (string)GetValue(PhotoNameProperty);
+            set => SetValue(PhotoNameProperty, value);
         }
     }
 }

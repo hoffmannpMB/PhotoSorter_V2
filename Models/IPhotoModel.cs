@@ -3,13 +3,12 @@ using System;
 
 namespace Models
 {
-    public interface IPhotoModel
+    public interface IPhotoModel : IImage
     {
-        string ImageName { get; set; }
-        string ImagePath { get; set; }
         ICameraModel CameraModel { get; set; }
         DateTime DateTaken { get; set; }
         string Description { get; set; }
+        IRedundantPhotoModel SelectedRedundantPhoto { get; set; }
         IObservableCollection<IRedundantPhotoModel> RedundantPhotos { get; }
     }
 }

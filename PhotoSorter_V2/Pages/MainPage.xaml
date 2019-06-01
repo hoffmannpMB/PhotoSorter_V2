@@ -34,7 +34,12 @@
                     <AppBarButton Icon="Save" 
                                   x:Uid="LabelSave" 
                                   Command="{Binding SaveCommand}" 
-                                  IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
+                                  IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="S" 
+                                                 Modifiers="Control"/>
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
 
                     <AppBarButton Icon="Folder" 
                                   x:Uid="LabelSave" 
@@ -43,9 +48,11 @@
 
                     <AppBarSeparator />
 
+                    <!-- IPhotoModel doesn't contain Command, Selected Photo is of type PhotoViewModel, which contains the Command -->
+                    <!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
                     <AppBarButton Icon="Edit" 
                                   x:Uid="LabelEdit" 
-                                  Command="{Binding EditCommand}" 
+                                  Command="{Binding SelectedPhoto.EditCommand}" 
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
                     <AppBarButton Icon="Rotate" 
@@ -56,6 +63,7 @@
                     <AppBarButton Icon="Delete" 
                                   x:Uid="LabelDelete" 
                                   Command="{Binding DeleteCommand}" 
+                                  CommandParameter="{Binding SelectedPhoto}"
                                   IsCompact="{Binding IsOpen, ElementName=TopCommandoBar, Converter={StaticResource InvertBooleanConverter}}" />
 
                 </StackPanel>
@@ -108,19 +116,22 @@
         <SplitView Grid.Row="1" 
                    Grid.Column="0"
                    Margin="5"
-                   IsPaneOpen="{Binding ShowRedundantPhotos}"
+                   IsPaneOpen="{Binding ShowRedundantPhotos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    DisplayMode="Inline"
                    OpenPaneLength="400"
                    PanePlacement="Right">
 
             <SplitView.Pane>
                 <custom:RedundantPhotos x:Uid="HeaderRedundantPhotos"
-                                        RedundantPhotosCollection="{Binding SelectedPhoto.RedundantPhotos}"/>
+                                        DeleteItemCommand="{Binding DeleteCommand}"
+                                        SelectedRedundantImage="{Binding SelectedPhoto.SelectedRedundantPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        RedundantPhotosCollection="{Binding SelectedPhoto.RedundantPhotos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </SplitView.Pane>
 
             <custom:FlipViewWithPageIndicator x:Uid="FlipViewWithPageIndicator"
+                                              PhotoName="{Binding SelectedPhoto.ImageName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                               SelectedImage="{Binding SelectedPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                              Images="{Binding Images}"/>
+                                              Images="{Binding Images, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </SplitView>
 
         <CommandBar Grid.Row="2" 

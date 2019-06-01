@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:custom="using:CustomControls"
     mc:Ignorable="d"
-    DataContext="{Binding Path=PhotoViewModel, Source={StaticResource ViewModelLocator}}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>

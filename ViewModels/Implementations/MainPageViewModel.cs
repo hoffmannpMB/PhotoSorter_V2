@@ -10,24 +10,17 @@ namespace ViewModels.Implementations
     /// <inheritdoc cref="ViewModelBase" />
     public class MainPageViewModel : ViewModelBase<MainPageModel>, IMainPageViewModel
     {
-        private readonly INavigationService _navigationService;
-        private readonly IMessenger _messenger;
-
         public MainPageViewModel(INavigationService navigationService, IMessenger messenger, IViewModelFactory factory)
         {
-            _navigationService = navigationService;
-            _messenger = messenger;
-
             messenger.Register<string>(this, "PhotoDescription", p => { SelectedPhoto.Description = p; });
             Model.Images.Cast(factory.Create);
 
             SettingsCommand = new RelayCommand(p => navigationService.NavigateTo("SettingsPage"));
-            EditCommand = new RelayCommand(p => ExecuteEdit());
             SaveCommand = new RelayCommand(p => ExecuteSave());
             ImportCommand = new RelayCommand(p => ExecuteImport());
             OpenCommand = new RelayCommand(p => ExecuteOpen());
             RotateCommand = new RelayCommand(p => ExecuteRotate());
-            DeleteCommand = new RelayCommand(p => ExecuteDelete());
+            DeleteCommand = new RelayCommand(p => ExecuteDelete(p as IImage));
             OrderByCommand = new RelayCommand(p => ExecuteOrderBy());
             CompareCommand = new RelayCommand(p => ExecuteCompare());
         }
@@ -35,18 +28,11 @@ namespace ViewModels.Implementations
         public ICommand SettingsCommand { get; }
         public ICommand SaveCommand { get; }
         public ICommand ImportCommand { get; }
-        public ICommand EditCommand { get; }
         public ICommand OpenCommand { get; }
         public ICommand RotateCommand { get; }
         public ICommand DeleteCommand { get; }
         public ICommand OrderByCommand { get; }
         public ICommand CompareCommand { get; }
-
-        private void ExecuteEdit()
-        {
-            _navigationService.NavigateTo("EditPage");
-            _messenger.Send(SelectedPhoto, nameof(SelectedPhoto));
-        }
 
         private void ExecuteImport()
         {
@@ -58,19 +44,31 @@ namespace ViewModels.Implementations
         {
             // copy photos to project location
             // create/edit xml
+
+            SelectedPhoto.SelectedRedundantPhoto = SelectedPhoto.RedundantPhotos.First();
+            SelectedPhoto.ImageName = "Terst";
         }
 
         private void ExecuteOpen()
         {
-            SelectedPhoto.RedundantPhotos.First().IsChecked = !SelectedPhoto.RedundantPhotos.First().IsChecked;
         }
 
         private void ExecuteRotate()
         {
         }
 
-        private void ExecuteDelete()
+        private void ExecuteDelete(IImage image)
         {
+            if (image == null) return;
+
+            var photoViewModel = Images.FirstOrDefault(i => i.ImagePath.Equals(image.ImagePath));
+            var redundantPhotoViewModel = SelectedPhoto?.RedundantPhotos.FirstOrDefault(i => i.ImagePath.Equals(image.ImagePath));
+
+            if (photoViewModel != null)
+                Images.Remove(photoViewModel);
+
+            if (redundantPhotoViewModel != null)
+                SelectedPhoto?.RedundantPhotos.Remove(redundantPhotoViewModel);
         }
 
         private void ExecuteOrderBy()
@@ -79,19 +77,6 @@ namespace ViewModels.Implementations
 
         private void ExecuteCompare()
         {
-        }
-
-        public IPhotoModel SelectedPhoto
-        {
-            get => Model.SelectedPhoto;
-            set
-            {
-                if (value == Model.SelectedPhoto) return;
-
-                Model.SelectedPhoto = value;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(ShowDetailsPane));
-            }
         }
 
         public bool ShowRedundantPhotos
@@ -132,8 +117,21 @@ namespace ViewModels.Implementations
             }
         }
 
-        public bool ShowDetailsPane => Model.ShowDetailsPane;
+        public IPhotoModel SelectedPhoto
+        {
+            get => Model.SelectedPhoto;
+            set
+            {
+                if (value == Model.SelectedPhoto) return;
+
+                Model.SelectedPhoto = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(ShowDetailsPane));
+            }
+        }
 
         public IObservableCollection<IPhotoModel> Images => Model.Images;
+
+        public bool ShowDetailsPane => Model.ShowDetailsPane;
     }
 }
