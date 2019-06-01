@@ -87,6 +87,8 @@ namespace CustomControls
 
         private void RichEditBox_OnLoaded(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(Text)) return;
+
             Editor.Document.SetText(TextSetOptions.FormatRtf, Text);
         }
 

@@ -6,5 +6,6 @@ namespace ViewModels
     public interface IPhotoViewModel : IPhotoModel
     {
         ICommand BackCommand { get; }
+        ICommand EditCommand { get; }
     }
 }

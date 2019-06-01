@@ -85,25 +85,10 @@
                                 x:Uid="LabelRedundantPhotos" 
                                 IsChecked="{Binding ShowRedundantPhotos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <AppBarToggleButton Icon="Sort"
-                                Label="Order By">
-                <AppBarToggleButton.ContextFlyout>
-                    <MenuFlyout>
-                        <MenuFlyoutItem Icon="Calendar" 
-                                        x:Uid="TextOrderByDate"
-                                        Command="{Binding OrderByCommand}" 
-                                        CommandParameter="{Binding SelectedPhoto.DateTaken}"/>
-                        <MenuFlyoutItem Icon="Street" 
-                                        x:Uid="TextOrderByImageName"
-                                        Command="{Binding OrderByCommand}" 
-                                        CommandParameter="{Binding SelectedPhoto.ImageName}"/>
-                        <MenuFlyoutItem Icon="Camera" 
-                                        x:Uid="TextOrderByCameraModel"
-                                        Command="{Binding OrderByCommand}" 
-                                        CommandParameter="{Binding SelectedPhoto.CameraModel}"/>
-                    </MenuFlyout>
-                </AppBarToggleButton.ContextFlyout>
-            </AppBarToggleButton>
+            <AppBarToggleButton Icon="Sort" 
+                                Name="OrderBy"
+                                Command="{Binding OrderByCommand}"
+                                CommandParameter="{Binding ElementName=OrderBy, Path=IsChecked}"/>
 
             <AppBarSeparator />
 

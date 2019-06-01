@@ -7,8 +7,8 @@ namespace ViewModels.MockViewModels
 {
     public class MockPhotoViewModel : IPhotoViewModel
     {
-        public ICommand DeleteCommand { get; }
         public ICommand BackCommand { get; }
+        public ICommand EditCommand { get; }
         public string ImageName { get; set; }
         public string ImagePath { get; set; }
         public ICameraModel CameraModel { get; set; }

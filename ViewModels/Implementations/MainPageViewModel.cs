@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Models;
+﻿using Models;
 using Models.Implementations;
 using MVVM_Base;
 using MVVM_Base.Messenger;
@@ -21,7 +20,7 @@ namespace ViewModels.Implementations
             OpenCommand = new RelayCommand(p => ExecuteOpen());
             RotateCommand = new RelayCommand(p => ExecuteRotate());
             DeleteCommand = new RelayCommand(p => ExecuteDelete(p as IImage));
-            OrderByCommand = new RelayCommand(p => ExecuteOrderBy());
+            OrderByCommand = new RelayCommand(p => ExecuteOrderBy((bool)p));
             CompareCommand = new RelayCommand(p => ExecuteCompare());
         }
 
@@ -44,9 +43,6 @@ namespace ViewModels.Implementations
         {
             // copy photos to project location
             // create/edit xml
-
-            SelectedPhoto.SelectedRedundantPhoto = SelectedPhoto.RedundantPhotos.First();
-            SelectedPhoto.ImageName = "Terst";
         }
 
         private void ExecuteOpen()
@@ -61,18 +57,15 @@ namespace ViewModels.Implementations
         {
             if (image == null) return;
 
-            var photoViewModel = Images.FirstOrDefault(i => i.ImagePath.Equals(image.ImagePath));
-            var redundantPhotoViewModel = SelectedPhoto?.RedundantPhotos.FirstOrDefault(i => i.ImagePath.Equals(image.ImagePath));
+            Images.Remove(i => i.ImagePath.Equals(image.ImagePath));
 
-            if (photoViewModel != null)
-                Images.Remove(photoViewModel);
-
-            if (redundantPhotoViewModel != null)
-                SelectedPhoto?.RedundantPhotos.Remove(redundantPhotoViewModel);
+            foreach (var photoModel in Images)
+                photoModel.RedundantPhotos.Remove(i => i.ImagePath.Equals(image.ImagePath));
         }
 
-        private void ExecuteOrderBy()
+        private void ExecuteOrderBy(bool @descending)
         {
+            Images.SortBy(p => p.DateTaken, descending);
         }
 
         private void ExecuteCompare()

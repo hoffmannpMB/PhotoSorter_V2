@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Linq;
 
 namespace MVVM_Base.Implementations
 {
@@ -29,12 +30,30 @@ namespace MVVM_Base.Implementations
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
 
-        public IObservableCollection<T> Cast<TNew>(Func<T, TNew> factory) where TNew : T
+        public void Cast<TNew>(Func<T, TNew> factory) where TNew : T
         {
             for (var i = 0; i < Items.Count; i++)
                 Items[i] = factory(Items[i]);
+        }
 
-            return this;
+        public void Remove(Func<T, bool> func)
+        {
+            for (var i = 0; i < Items.Count; i++)
+            {
+                if (!func(Items[i])) continue;
+
+                Items.RemoveAt(i);
+                i--;
+            }
+
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        }
+
+        public void SortBy<TKey>(Func<T, TKey> keySelector, bool @descending = false)
+        {
+            var ordered = (@descending ? Items.OrderBy(keySelector) : Items.OrderByDescending(keySelector)).ToList();
+            Items.Clear();
+            AddRange(ordered);
         }
     }
 }

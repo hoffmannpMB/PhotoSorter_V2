@@ -126,17 +126,15 @@
     <Compile Include="ComboBoxWithHeaderAndLabel.xaml.cs">
       <DependentUpon>ComboBoxWithHeaderAndLabel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converter\TextToVisibilityConverter.cs" />
     <Compile Include="Converter\RedundantPhotosCountConverter.cs" />
     <Compile Include="Converter\SimilarityConverter.cs" />
+    <Compile Include="Converter\SimilarityToColorConverter.cs" />
     <Compile Include="FlipViewWithPageIndicator.xaml.cs">
       <DependentUpon>FlipViewWithPageIndicator.xaml</DependentUpon>
     </Compile>
     <Compile Include="ImageWithDescription.xaml.cs">
       <DependentUpon>ImageWithDescription.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converter\PercentageConverter.cs" />
     <Compile Include="ProgressbarWithText.xaml.cs">
       <DependentUpon>ProgressbarWithText.xaml</DependentUpon>
     </Compile>
