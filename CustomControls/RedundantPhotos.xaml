@@ -48,19 +48,13 @@
                     <StackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
-            <ListView.Resources>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="IsSelected" Value="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                </Style>
-            </ListView.Resources>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
 
                         <StackPanel Orientation="Horizontal">
 
-                            <CheckBox Name="IsSelectedCbx"
-                                      IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                             <Image Margin="-80 5 5 5" 
                                    HorizontalAlignment="Stretch"

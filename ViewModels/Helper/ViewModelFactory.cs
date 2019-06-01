@@ -24,7 +24,11 @@ namespace ViewModels.Helper
 
         public IPhotoViewModel Create(IPhotoModel model)
         {
-            return new PhotoViewModel(_messenger, _navigationService) { Model = (PhotoModel)model };
+            var photoViewModel = new PhotoViewModel(_messenger, _navigationService) { Model = (PhotoModel)model };
+
+            photoViewModel.RedundantPhotos.Cast(Create);
+
+            return photoViewModel;
         }
     }
 }
