@@ -1,5 +1,5 @@
 # PhotoSorter_V2
-Ist Zustand:
+#Ist Zustand:
 Man fährt in den Urlaub, in ein Land mit einer anderen Zeitzone. Dort macht man natürlich viele Fotos um die Erinnerung daran zu behalten.
 Die Fotos macht man dann teilweise mit dem Handy und teilweise mit der Digitalkamera. Das Handy hat die Zeitzone automatisch umgestellt,
 die Digitalkamera hat dies nicht gemacht.
