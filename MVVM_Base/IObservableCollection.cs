@@ -9,8 +9,6 @@ namespace MVVM_Base
     {
         void AddRange(IEnumerable<T> collection);
 
-        void Cast<TNew>(Func<T, TNew> factory) where TNew : T;
-
         void Remove(Func<T, bool> func);
 
         void SortBy<TKey>(Func<T, TKey> keySelector, bool @descending = false);

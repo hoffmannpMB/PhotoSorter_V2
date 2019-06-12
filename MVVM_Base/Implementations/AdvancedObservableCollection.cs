@@ -30,12 +30,6 @@ namespace MVVM_Base.Implementations
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
 
-        public void Cast<TNew>(Func<T, TNew> factory) where TNew : T
-        {
-            for (var i = 0; i < Items.Count; i++)
-                Items[i] = factory(Items[i]);
-        }
-
         public void Remove(Func<T, bool> func)
         {
             for (var i = 0; i < Items.Count; i++)
