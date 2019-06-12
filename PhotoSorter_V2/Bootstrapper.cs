@@ -2,6 +2,7 @@
 using PhotoSorter_V2.UiHelper;
 using System.Reflection;
 using BusinessLogic;
+using Models;
 using MVVM_Base.Messenger;
 using Repository;
 using ViewModels;
@@ -33,6 +34,7 @@ namespace PhotoSorter_V2
 
         private static void BuildHelper(ContainerBuilder builder)
         {
+            builder.RegisterType<ModelFactory>().AsImplementedInterfaces();
             builder.RegisterType<ViewModelFactory>().AsImplementedInterfaces();
             builder.RegisterType<NavigationService>().AsImplementedInterfaces();
             builder.RegisterType<Messenger>().AsImplementedInterfaces().SingleInstance();

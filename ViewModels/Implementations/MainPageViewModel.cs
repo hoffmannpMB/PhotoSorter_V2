@@ -1,16 +1,23 @@
-﻿using Models;
+﻿using System.Threading.Tasks;
+using Models;
 using Models.Implementations;
 using MVVM_Base;
 using MVVM_Base.Messenger;
 using System.Windows.Input;
+using BusinessLogic;
 
 namespace ViewModels.Implementations
 {
     /// <inheritdoc cref="ViewModelBase" />
     public class MainPageViewModel : ViewModelBase<MainPageModel>, IMainPageViewModel
     {
-        public MainPageViewModel(INavigationService navigationService, IMessenger messenger, IViewModelFactory factory)
+        private readonly IViewModelFactory _factory;
+        private readonly IPhotoService _photoService;
+
+        public MainPageViewModel(INavigationService navigationService, IMessenger messenger, IViewModelFactory factory, IPhotoService photoService)
         {
+            _factory = factory;
+            _photoService = photoService;
             messenger.Register<string>(this, "PhotoDescription", p => { SelectedPhoto.Description = p; });
             Model.Images.Cast(factory.Create);
 
@@ -33,10 +40,11 @@ namespace ViewModels.Implementations
         public ICommand OrderByCommand { get; }
         public ICommand CompareCommand { get; }
 
-        private void ExecuteImport()
+        private async Task ExecuteImport()
         {
-            // import photos
-            // convert PhotoModels into PhotoViewModels
+            var t = await _photoService.ImportPhotos();
+            t.Cast(_factory.Create);
+            Images.AddRange(t);
         }
 
         private void ExecuteSave()

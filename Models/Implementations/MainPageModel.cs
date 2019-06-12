@@ -29,16 +29,16 @@ namespace Models.Implementations
                         new RedundantPhotoModel {ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 50},
                         new RedundantPhotoModel {ImagePath = "ms-appx:///Assets/leopard1.jpg", Similarity = 90}
                     },
-                    DateTaken = DateTime.Today
+                    DateTaken = DateTimeOffset.Now
                 },
-                new PhotoModel {ImagePath = "ms-appx:///Assets/leopard2.jpg", Description = "Hallo Welt"},
+                new PhotoModel {ImagePath = "/Assets/leopard2.jpg", Description = "Hallo Welt"},
                 new PhotoModel
                 {
-                    ImagePath = "ms-appx:///Assets/leopard1.jpg", DateTaken = DateTime.Now,
+                    ImagePath = "ms-appx:///Assets/leopard1.jpg", DateTaken = DateTimeOffset.Now,
                     CameraModel = new CameraModel {Manufacturer = "Canon", CameraType = "IP2980"}
                 },
-                new PhotoModel {ImagePath = "ms-appx:///Assets/leopard2.jpg", DateTaken = DateTime.MinValue },
-                new PhotoModel {ImagePath = "ms-appx:///Assets/leopard2.jpg", DateTaken = DateTime.MaxValue }
+                new PhotoModel {ImagePath = "ms-appx:///Assets/leopard2.jpg", DateTaken = DateTimeOffset.MinValue },
+                new PhotoModel {ImagePath = "ms-appx:///Assets/leopard2.jpg", DateTaken = DateTimeOffset.MaxValue }
             };
         }
 

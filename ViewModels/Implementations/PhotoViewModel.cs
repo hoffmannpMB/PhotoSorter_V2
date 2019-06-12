@@ -85,7 +85,7 @@ namespace ViewModels.Implementations
             }
         }
 
-        public DateTime DateTaken
+        public DateTimeOffset DateTaken
         {
             get => Model.DateTaken;
             set

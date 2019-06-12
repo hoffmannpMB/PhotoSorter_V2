@@ -13,7 +13,7 @@ namespace ViewModels.MockViewModels
         public string ImagePath { get; set; }
         public float Rotation { get; set; }
         public ICameraModel CameraModel { get; set; }
-        public DateTime DateTaken { get; set; }
+        public DateTimeOffset DateTaken { get; set; }
         public string Description { get; set; }
         public IRedundantPhotoModel SelectedRedundantPhoto { get; set; }
         public IObservableCollection<IRedundantPhotoModel> RedundantPhotos { get; }
