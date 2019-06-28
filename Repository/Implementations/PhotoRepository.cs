@@ -21,7 +21,7 @@ namespace Repository.Implementations
             return await picker.PickMultipleFilesAsync();
         }
 
-        public async Task<IEnumerable<StorageFile>> CopyPhotosToAssetsAsync(IEnumerable<StorageFile> files)
+        public async Task<IReadOnlyList<StorageFile>> CopyPhotosToAssetsAsync(IEnumerable<StorageFile> files)
         {
             var assetFiles = new List<StorageFile>();
             var storageFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets");

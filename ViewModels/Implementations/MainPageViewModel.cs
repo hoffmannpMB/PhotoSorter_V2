@@ -23,7 +23,7 @@ namespace ViewModels.Implementations
 
             SettingsCommand = new RelayCommand(p => navigationService.NavigateTo("SettingsPage"));
             SaveCommand = new RelayCommand(p => ExecuteSave());
-            ImportCommand = new RelayCommand(p => ExecuteImport());
+            ImportCommand = new RelayCommand(async p => await ExecuteImport());
             OpenCommand = new RelayCommand(p => ExecuteOpen());
             RotateCommand = new RelayCommand(p => ExecuteRotate());
             DeleteCommand = new RelayCommand(p => ExecuteDelete(p as IImage));

@@ -18,12 +18,13 @@ namespace BusinessLogic.Implementations
 
         public async Task<IList<IPhotoModel>> ImportPhotos()
         {
-            var files = await _photoRepository.CopyPhotosToAssetsAsync(await _photoRepository.GetPhotosAsync());
+            var files = await _photoRepository.GetPhotosAsync();
+            var tmpFiles = await _photoRepository.CopyPhotosToAssetsAsync(files);
             var photos = new List<IPhotoModel>();
 
-            foreach (var storageFile in files)
+            for (var i = 0; i < files.Count; i++)
             {
-                photos.Add(await _modelFactory.CreateAsync(storageFile));
+                photos.Add(await _modelFactory.CreateAsync(files[i], tmpFiles[i]));
             }
 
             return photos;

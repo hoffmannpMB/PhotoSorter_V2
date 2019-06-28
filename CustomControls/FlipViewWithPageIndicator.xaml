@@ -12,7 +12,7 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-        <converter:RedundantPhotosCountConverter x:Key="RedundantPhotosCountConverter"/>
+        <converter:RedundantPhotosCountConverter x:Key="RedundantPhotosCountConverter" />
     </UserControl.Resources>
 
     <Grid>
@@ -21,10 +21,14 @@
             <RowDefinition Height="3*"/>
             <RowDefinition />
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
         <TextBox Grid.Row="0"
                  Margin="5 2"
                  PlaceholderText="{Binding PhotoNamePlaceHolder, ElementName=UserControl}"
                  Text="{Binding PhotoName, ElementName=UserControl}"/>
+
+        <DatePicker Date="{Binding TestDate, ElementName=UserControl}"></DatePicker>
+        </StackPanel>
 
         <FlipView Grid.Row="1"
                   Name="FlipView"
@@ -39,12 +43,12 @@
                                                          DescriptionHeader="{Binding DescriptionHeader, ElementName=UserControl}"
                                                          ImagePathPlaceHolder="{Binding ImagePathPlaceHolder, ElementName=UserControl}"
                                                          CameraModelPlaceHolder="{Binding CameraModelPlaceHolder, ElementName=UserControl}"
-                                                         ImageRotation="{Binding ImageRotation, ElementName=UserControl}"
-                                                         ImagePathText="{Binding ImagePath}"
-                                                         Source="{Binding ImagePath}"
-                                                         DateTakenDate="{Binding DateTaken}"
-                                                         CameraModelName="{Binding CameraModel}"
-                                                         RtfText="{Binding Description}"
+                                                         ImageRotation="{Binding Rotation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         ImagePathText="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         Source="{Binding TmpImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DateTakenDate="{Binding DateTaken, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         CameraModelName="{Binding CameraModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         RtfText="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                          IsPaneOpen="{Binding ElementName=UserControl, Path=DataContext.ShowDetailsPane}"
                                                          ShowDetails="{Binding ElementName=UserControl, Path=DataContext.ShowDetails}"
                                                          ShowDescription="{Binding ElementName=UserControl, Path=DataContext.ShowDescription}"/>
@@ -67,9 +71,9 @@
                                MaxWidth="120"
                                MaxHeight="120"
                                RenderTransformOrigin="0.5 0.5"
-                               Source="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                               Source="{Binding TmpImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
                             <Image.RenderTransform>
-                                <RotateTransform Angle="{Binding ImageRotation, ElementName=UserControl}"/>
+                                <RotateTransform Angle="{Binding Rotation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             </Image.RenderTransform>
                         </Image>
 

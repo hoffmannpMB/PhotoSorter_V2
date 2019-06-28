@@ -55,7 +55,7 @@ namespace PhotoSorter_V2
         private static void BuildViewModels(ContainerBuilder builder)
         {
             // register all ViewModels as its implemented interfaces, except the MockViewModel.
-            builder.RegisterAssemblyTypes(typeof(IMainPageViewModel).GetTypeInfo().Assembly).Where(t => t.Name.EndsWith("ViewModel") && !t.Name.StartsWith("Mock")).AsImplementedInterfaces().SingleInstance();
+            builder.RegisterAssemblyTypes(typeof(IMainPageViewModel).GetTypeInfo().Assembly).Where(t => t.Name.EndsWith("ViewModel") && !t.Name.StartsWith("Mock")).AsImplementedInterfaces();
         }
 
         public IContainer Container { get; }

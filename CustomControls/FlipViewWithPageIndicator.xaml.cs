@@ -1,4 +1,5 @@
 ﻿using Models;
+using System;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 
@@ -23,7 +24,7 @@ namespace CustomControls
         public static readonly DependencyProperty CameraModelPlaceHolderProperty = DependencyProperty.Register("CameraModelPlaceHolder", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty PhotoNamePlaceHolderProperty = DependencyProperty.Register("PhotoNamePlaceHolder", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty PhotoNameProperty = DependencyProperty.Register("PhotoName", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
-        public static readonly DependencyProperty ImageRotationProperty = DependencyProperty.Register("ImageRotation", typeof(float), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(float)));
+        public static readonly DependencyProperty TestDateProperty = DependencyProperty.Register("TestDate", typeof(DateTimeOffset), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(DateTimeOffset)));
 
         public ObservableCollection<IPhotoModel> Images
         {
@@ -85,10 +86,10 @@ namespace CustomControls
             set => SetValue(PhotoNameProperty, value);
         }
 
-        public float ImageRotation
+        public DateTimeOffset TestDate
         {
-            get => (float)GetValue(ImageRotationProperty);
-            set => SetValue(ImageRotationProperty, value);
+            get => (DateTimeOffset)GetValue(TestDateProperty);
+            set => SetValue(TestDateProperty, value);
         }
     }
 }

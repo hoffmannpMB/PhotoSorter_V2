@@ -32,6 +32,18 @@ namespace ViewModels.Implementations
             }
         }
 
+        public string TmpImagePath
+        {
+            get => Model.TmpImagePath;
+            set
+            {
+                if (value == Model.TmpImagePath) return;
+
+                Model.TmpImagePath = value;
+                OnPropertyChanged();
+            }
+        }
+
         public float Rotation
         {
             get => Model.Rotation;

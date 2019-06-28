@@ -109,16 +109,15 @@
             <SplitView.Pane>
                 <custom:RedundantPhotos x:Uid="HeaderRedundantPhotos"
                                         DeleteItemCommand="{Binding DeleteCommand}"
-                                        ImageRotation="{Binding SelectedPhoto.Rotation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         SelectedRedundantImage="{Binding SelectedPhoto.SelectedRedundantPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         RedundantPhotosCollection="{Binding SelectedPhoto.RedundantPhotos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </SplitView.Pane>
 
             <custom:FlipViewWithPageIndicator x:Uid="FlipViewWithPageIndicator"
-                                              ImageRotation="{Binding SelectedPhoto.Rotation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                               PhotoName="{Binding SelectedPhoto.ImageName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                               SelectedImage="{Binding SelectedPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                              Images="{Binding Images, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                              Images="{Binding Images, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              TestDate="{Binding SelectedPhoto.DateTaken}"/>
         </SplitView>
 
         <CommandBar Grid.Row="2" 

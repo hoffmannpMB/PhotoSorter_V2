@@ -13,7 +13,6 @@ namespace CustomControls
         public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(string), typeof(RedundantPhotos), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty DeleteItemCommandProperty = DependencyProperty.Register("DeleteItemCommand", typeof(ICommand), typeof(RedundantPhotos), new PropertyMetadata(default(ICommand)));
         public static readonly DependencyProperty SelectedRedundantImageProperty = DependencyProperty.Register("SelectedRedundantImage", typeof(IRedundantPhotoModel), typeof(RedundantPhotos), new PropertyMetadata(default(IRedundantPhotoModel)));
-        public static readonly DependencyProperty ImageRotationProperty = DependencyProperty.Register("ImageRotation", typeof(float), typeof(RedundantPhotos), new PropertyMetadata(default(float)));
 
         public RedundantPhotos()
         {
@@ -42,12 +41,6 @@ namespace CustomControls
         {
             get => (IRedundantPhotoModel)GetValue(SelectedRedundantImageProperty);
             set => SetValue(SelectedRedundantImageProperty, value);
-        }
-
-        public float ImageRotation
-        {
-            get => (float)GetValue(ImageRotationProperty);
-            set => SetValue(ImageRotationProperty, value);
         }
     }
 }

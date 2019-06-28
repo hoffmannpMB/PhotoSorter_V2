@@ -4,6 +4,7 @@
     {
         public string ImageName { get; set; }
         public string ImagePath { get; set; }
+        public string TmpImagePath { get; set; }
         public float Rotation { get; set; }
         public float Similarity { get; set; }
     }

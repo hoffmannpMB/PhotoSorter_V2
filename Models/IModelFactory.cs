@@ -5,6 +5,6 @@ namespace Models
 {
     public interface IModelFactory
     {
-        Task<IPhotoModel> CreateAsync(StorageFile storageFile);
+        Task<IPhotoModel> CreateAsync(StorageFile sourceFile, StorageFile storageFile);
     }
 }

@@ -8,10 +8,10 @@ namespace Models
 {
     public class ModelFactory : IModelFactory
     {
-        public async Task<IPhotoModel> CreateAsync(StorageFile storageFile)
+        public async Task<IPhotoModel> CreateAsync(StorageFile sourceFile, StorageFile tmpStorageFile)
         {
-            var metaData = await storageFile.Properties.GetImagePropertiesAsync();
-            var extraProperties = await storageFile.Properties.RetrievePropertiesAsync(new List<string> {"System.Comment"});
+            var metaData = await sourceFile.Properties.GetImagePropertiesAsync();
+            var extraProperties = await sourceFile.Properties.RetrievePropertiesAsync(new List<string> {"System.Comment"});
 
             var model = new PhotoModel
             {
@@ -22,8 +22,9 @@ namespace Models
                 },
                 DateTaken = metaData.DateTaken.DateTime,
                 Description = extraProperties["System.Comment"]?.ToString(),
-                ImageName = storageFile.Name,
-                ImagePath = storageFile.Path
+                ImageName = sourceFile.Name,
+                ImagePath = sourceFile.Path,
+                TmpImagePath = tmpStorageFile.Path
             };
 
             return model;
