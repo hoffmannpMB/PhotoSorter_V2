@@ -13,7 +13,7 @@ namespace Models.Implementations
                 new PhotoModel
                 {
                     ImageName = "Test 1",
-                    ImagePath = "Path not available",
+                    ImagePath = "Path not available1",
                     TmpImagePath = @"ms-appx:///Assets/leopard1.jpg",
                     Description =
                         @"{\rtf1\fbidis\ansi\ansicpg1252\deff0\nouicompat\deflang1031{\fonttbl{\f0\fnil Segoe UI;}{\f1\fnil\fcharset0 Segoe UI;}}
@@ -36,16 +36,16 @@ namespace Models.Implementations
                 },
                 new PhotoModel
                 {
-                    ImagePath = "Path not available", TmpImagePath = "/Assets/leopard2.jpg", Description = "Hallo Welt"
+                    ImagePath = "Path not available2", TmpImagePath = "/Assets/leopard2.jpg", Description = "Hallo Welt"
                 },
                 new PhotoModel
                 {
-                    ImagePath = "Path not available",
+                    ImagePath = "Path not available3",
                     TmpImagePath = "ms-appx:///Assets/leopard1.jpg", DateTaken = DateTimeOffset.Now,
                     CameraModel = new CameraModel {Manufacturer = "Canon", CameraType = "IP2980"}
                 },
-                new PhotoModel {ImagePath = "Path not available", TmpImagePath = "ms-appx:///Assets/leopard2.jpg", DateTaken = DateTimeOffset.MinValue},
-                new PhotoModel {ImagePath = "Path not available", TmpImagePath = "ms-appx:///Assets/leopard2.jpg", DateTaken = DateTimeOffset.MaxValue}
+                new PhotoModel {ImagePath = "Path not available4", TmpImagePath = "ms-appx:///Assets/leopard2.jpg", DateTaken = DateTimeOffset.MinValue},
+                new PhotoModel {ImagePath = "Path not available5", TmpImagePath = "ms-appx:///Assets/leopard2.jpg", DateTaken = DateTimeOffset.MaxValue}
             };
         }
 

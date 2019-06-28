@@ -84,27 +84,6 @@
   <data name="HeaderRedundantPhotos.Header" xml:space="preserve">
     <value>Doppelte Fotos</value>
   </data>
-  <data name="FlipViewWithPageIndicator.ImagePathHeader" xml:space="preserve">
-    <value>Bildpfad:</value>
-  </data>
-  <data name="FlipViewWithPageIndicator.DateTakenHeader" xml:space="preserve">
-    <value>Aufnahmedatum:</value>
-  </data>
-  <data name="FlipViewWithPageIndicator.CameraModelHeader" xml:space="preserve">
-    <value>Kameramodell:</value>
-  </data>
-  <data name="FlipViewWithPageIndicator.DescriptionHeader" xml:space="preserve">
-    <value>Beschreibung:</value>
-  </data>
-  <data name="FlipViewWithPageIndicator.PhotoNamePlaceHolder" xml:space="preserve">
-    <value>Fotoname...</value>
-  </data>
-  <data name="FlipViewWithPageIndicator.ImagePathPlaceHolder" xml:space="preserve">
-    <value>Bildpfad...</value>
-  </data>
-  <data name="FlipViewWithPageIndicator.CameraModelPlaceHolder" xml:space="preserve">
-    <value>Kameramodell nicht verfügbar</value>
-  </data>
   <data name="LabelDateTaken.Label" xml:space="preserve">
     <value>Aufnahmedatum</value>
   </data>
@@ -137,5 +116,20 @@
   </data>
   <data name="LabelShowDescription.Label" xml:space="preserve">
     <value>Beschreibung anzeigen</value>
+  </data>
+  <data name="DetailsPane.ImagePathHeader" xml:space="preserve">
+    <value>Bildpfad</value>
+  </data>
+  <data name="DetailsPane.DateTakenHeader" xml:space="preserve">
+    <value>Aufnahmedatum</value>
+  </data>
+  <data name="DetailsPane.CameraModelHeader" xml:space="preserve">
+    <value>Kameramodell</value>
+  </data>
+  <data name="DetailsPane.ImagePathPlaceHolder" xml:space="preserve">
+    <value>Bildpfad eingeben...</value>
+  </data>
+  <data name="DetailsPane.CameraModelPlaceHolder" xml:space="preserve">
+    <value>Kein Kameramodell verfügbar</value>
   </data>
 </root>

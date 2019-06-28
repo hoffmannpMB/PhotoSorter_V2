@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using System;
+using Models;
 using System.Windows.Input;
 
 namespace ViewModels
@@ -7,5 +8,6 @@ namespace ViewModels
     {
         ICommand BackCommand { get; }
         ICommand EditCommand { get; }
+        TimeSpan TimeTaken { get; set; }
     }
 }

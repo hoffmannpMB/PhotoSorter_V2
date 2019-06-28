@@ -17,18 +17,26 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" 
-                    Orientation="Horizontal">
+        <CommandBar Grid.Row="0"
+                    Margin="5 0">
 
-            <ComboBox Name="FontFamilyCbx"
-                      Margin="5"
-                      VerticalAlignment="Top"
-                      SelectionChanged="FontFamily_OnSelectionChanged"/>
+            <AppBarElementContainer>
 
-            <TextBox Name="FontSizeBox"
-                     Margin="5"
-                     VerticalAlignment="Top"
-                     Text="{Binding TextFontSize, ElementName=UserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox Name="FontFamilyCbx"
+                          Margin="5"
+                          VerticalAlignment="Top"
+                          SelectionChanged="FontFamily_OnSelectionChanged"/>
+
+            </AppBarElementContainer>
+
+            <AppBarElementContainer>
+
+                <TextBox Name="FontSizeBox"
+                         Margin="5"
+                         VerticalAlignment="Top"
+                         Text="{Binding TextFontSize, ElementName=UserControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            </AppBarElementContainer>
 
             <AppBarButton Icon="Bold"
                           Click="BoldButton_OnClick"/>
@@ -37,9 +45,10 @@
             <AppBarButton Icon="Underline"
                           Click="UnderlineButton_OnClick"/>
 
-        </StackPanel>
+        </CommandBar>
 
         <RichEditBox Grid.Row="1" 
+                     Margin="5 0"
                      Name="Editor"
                      TextChanged="Editor_OnTextChanged"
                      SelectionHighlightColorWhenNotFocused="DarkGray"

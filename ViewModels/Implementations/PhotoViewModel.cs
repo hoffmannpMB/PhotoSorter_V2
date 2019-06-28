@@ -109,6 +109,19 @@ namespace ViewModels.Implementations
             }
         }
 
+        public TimeSpan TimeTaken
+        {
+            get => Model.DateTaken.TimeOfDay;
+            set
+            {
+                if (value == DateTaken.TimeOfDay) return;
+
+                Model.DateTaken = new DateTimeOffset(new DateTime(DateTaken.Year, DateTaken.Month, DateTaken.Day,
+                    value.Hours, value.Minutes, value.Milliseconds));
+                OnPropertyChanged();
+            }
+        }
+
         public string Description
         {
             get => Model.Description;

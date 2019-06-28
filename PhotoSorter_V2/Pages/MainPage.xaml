@@ -16,13 +16,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-
-        <CommandBar Grid.Row="0"
-                    Name="TopCommandoBar">
+        <CommandBar Name="TopCommandoBar">
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal">
 
@@ -99,7 +93,6 @@
         </CommandBar>
 
         <SplitView Grid.Row="1" 
-                   Grid.Column="0"
                    Margin="5"
                    IsPaneOpen="{Binding ShowRedundantPhotos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                    DisplayMode="Inline"
@@ -113,16 +106,16 @@
                                         RedundantPhotosCollection="{Binding SelectedPhoto.RedundantPhotos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </SplitView.Pane>
 
-            <custom:FlipViewWithPageIndicator x:Uid="FlipViewWithPageIndicator"
+            <custom:FlipViewWithPageIndicator x:Uid="DetailsPane"
+                                              IsPaneOpen="{Binding ShowDetailsPane, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              ShowDetails="{Binding ShowDetails, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}}"
+                                              ShowDescription="{Binding ShowDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}}"
                                               PhotoName="{Binding SelectedPhoto.ImageName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                               SelectedImage="{Binding SelectedPhoto, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                              Images="{Binding Images, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                              TestDate="{Binding SelectedPhoto.DateTaken}"/>
+                                              Images="{Binding Images, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </SplitView>
 
         <CommandBar Grid.Row="2" 
-                    Grid.Column="0" 
-                    Grid.ColumnSpan="2"
                     DefaultLabelPosition="Right" 
                     OverflowButtonVisibility="Collapsed">
 

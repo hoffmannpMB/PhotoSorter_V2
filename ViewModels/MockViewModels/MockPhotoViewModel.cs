@@ -9,6 +9,7 @@ namespace ViewModels.MockViewModels
     {
         public ICommand BackCommand { get; }
         public ICommand EditCommand { get; }
+        public TimeSpan TimeTaken { get; set; }
         public string ImageName { get; set; }
         public string ImagePath { get; set; }
         public string TmpImagePath { get; set; }

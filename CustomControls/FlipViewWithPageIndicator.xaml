@@ -5,8 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:customControls="using:CustomControls"
     xmlns:converter="using:CustomControls.Converter"
+    xmlns:customControls="using:CustomControls"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -18,17 +18,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition />
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical">
+
         <TextBox Grid.Row="0"
                  Margin="5 2"
                  PlaceholderText="{Binding PhotoNamePlaceHolder, ElementName=UserControl}"
-                 Text="{Binding PhotoName, ElementName=UserControl}"/>
-
-        <DatePicker Date="{Binding TestDate, ElementName=UserControl}"></DatePicker>
-        </StackPanel>
+                 Text="{Binding PhotoName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=UserControl}" />
 
         <FlipView Grid.Row="1"
                   Name="FlipView"
@@ -36,22 +33,49 @@
                   ItemsSource="{Binding Images, ElementName=UserControl}">
             <FlipView.ItemTemplate>
                 <DataTemplate>
-                    <customControls:ImageWithDescription Margin="5 2"
-                                                         ImagePathHeader="{Binding ImagePathHeader, ElementName=UserControl}"
-                                                         DateTakenHeader="{Binding DateTakenHeader, ElementName=UserControl}"
-                                                         CameraModelHeader="{Binding CameraModelHeader, ElementName=UserControl}"
-                                                         DescriptionHeader="{Binding DescriptionHeader, ElementName=UserControl}"
-                                                         ImagePathPlaceHolder="{Binding ImagePathPlaceHolder, ElementName=UserControl}"
-                                                         CameraModelPlaceHolder="{Binding CameraModelPlaceHolder, ElementName=UserControl}"
-                                                         ImageRotation="{Binding Rotation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         ImagePathText="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         Source="{Binding TmpImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         DateTakenDate="{Binding DateTaken, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         CameraModelName="{Binding CameraModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         RtfText="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                         IsPaneOpen="{Binding ElementName=UserControl, Path=DataContext.ShowDetailsPane}"
-                                                         ShowDetails="{Binding ElementName=UserControl, Path=DataContext.ShowDetails}"
-                                                         ShowDescription="{Binding ElementName=UserControl, Path=DataContext.ShowDescription}"/>
+
+                    <SplitView DisplayMode="Inline" 
+                               PanePlacement="Right"
+                               OpenPaneLength="300"
+                               IsPaneOpen="{Binding IsPaneOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=UserControl}">
+
+                        <SplitView.Pane>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <customControls:DetailsPane Margin="5 0 0 10"
+                                                            ImagePathHeader="{Binding ImagePathHeader, ElementName=UserControl}"
+                                                            DateTakenHeader="{Binding DateTakenHeader, ElementName=UserControl}"
+                                                            CameraModelHeader="{Binding CameraModelHeader, ElementName=UserControl}"
+                                                            ImagePathPlaceHolder="{Binding ImagePathPlaceHolder, ElementName=UserControl}"
+                                                            CameraModelPlaceHolder="{Binding CameraModelPlaceHolder, ElementName=UserControl}"
+                                                            Visibility="{Binding ShowDetails, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=UserControl}" 
+                                                            ImagePathText="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                            DateTakenDate="{Binding DateTaken, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                            DateTakenTime="{Binding TimeTaken, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                            CameraModelName="{Binding CameraModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                <customControls:RichEditBox Grid.Row="1" 
+                                                            Margin="5 0 0 5"
+                                                            Visibility="{Binding ShowDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ElementName=UserControl}"
+                                                            Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </Grid>
+
+                        </SplitView.Pane>
+
+                        <Image Margin="5 2"
+                               RenderTransformOrigin="0.5 0.5"
+                               Source="{Binding TmpImagePath}" >
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="{Binding Rotation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </Image.RenderTransform>
+                        </Image>
+
+                    </SplitView>
                 </DataTemplate>
             </FlipView.ItemTemplate>
         </FlipView>

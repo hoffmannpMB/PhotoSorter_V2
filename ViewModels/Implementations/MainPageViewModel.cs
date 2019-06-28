@@ -13,6 +13,7 @@ namespace ViewModels.Implementations
     {
         private readonly IViewModelFactory _factory;
         private readonly IPhotoService _photoService;
+        private string _test;
 
         public MainPageViewModel(INavigationService navigationService, IMessenger messenger, IViewModelFactory factory, IPhotoService photoService)
         {
@@ -66,10 +67,10 @@ namespace ViewModels.Implementations
         {
             if (image == null) return;
 
-            Images.Remove(i => i.ImagePath.Equals(image.ImagePath));
+            Images.Remove(i => i.TmpImagePath.Equals(image.TmpImagePath));
 
             foreach (var photoModel in Images)
-                photoModel.RedundantPhotos.Remove(i => i.ImagePath.Equals(image.ImagePath));
+                photoModel.RedundantPhotos.Remove(i => i.TmpImagePath.Equals(image.TmpImagePath));
         }
 
         private void ExecuteOrderBy(bool @descending)

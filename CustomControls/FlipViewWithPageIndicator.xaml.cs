@@ -1,5 +1,4 @@
 ﻿using Models;
-using System;
 using System.Collections.ObjectModel;
 using Windows.UI.Xaml;
 
@@ -24,7 +23,9 @@ namespace CustomControls
         public static readonly DependencyProperty CameraModelPlaceHolderProperty = DependencyProperty.Register("CameraModelPlaceHolder", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty PhotoNamePlaceHolderProperty = DependencyProperty.Register("PhotoNamePlaceHolder", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
         public static readonly DependencyProperty PhotoNameProperty = DependencyProperty.Register("PhotoName", typeof(string), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(string)));
-        public static readonly DependencyProperty TestDateProperty = DependencyProperty.Register("TestDate", typeof(DateTimeOffset), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(DateTimeOffset)));
+        public static readonly DependencyProperty IsPaneOpenProperty = DependencyProperty.Register("IsPaneOpen", typeof(bool), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(bool)));
+        public static readonly DependencyProperty ShowDetailsProperty = DependencyProperty.Register("ShowDetails", typeof(Visibility), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(Visibility)));
+        public static readonly DependencyProperty ShowDescriptionProperty = DependencyProperty.Register("ShowDescription", typeof(Visibility), typeof(FlipViewWithPageIndicator), new PropertyMetadata(default(Visibility)));
 
         public ObservableCollection<IPhotoModel> Images
         {
@@ -86,10 +87,22 @@ namespace CustomControls
             set => SetValue(PhotoNameProperty, value);
         }
 
-        public DateTimeOffset TestDate
+        public bool IsPaneOpen
         {
-            get => (DateTimeOffset)GetValue(TestDateProperty);
-            set => SetValue(TestDateProperty, value);
+            get => (bool)GetValue(IsPaneOpenProperty);
+            set => SetValue(IsPaneOpenProperty, value);
+        }
+
+        public Visibility ShowDetails
+        {
+            get => (Visibility)GetValue(ShowDetailsProperty);
+            set => SetValue(ShowDetailsProperty, value);
+        }
+
+        public Visibility ShowDescription
+        {
+            get => (Visibility)GetValue(ShowDescriptionProperty);
+            set => SetValue(ShowDescriptionProperty, value);
         }
     }
 }

@@ -3,11 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:PhotoSorter_V2"
+    xmlns:converter="using:CustomControls.Converter"
     xmlns:uiHelper="using:PhotoSorter_V2.UiHelper">
     <Application.Resources>
         <ResourceDictionary>
             <uiHelper:ViewModelLocator x:Key="ViewModelLocator" />
             <uiHelper:InvertBooleanConverter x:Key="InvertBooleanConverter" />
+            <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
