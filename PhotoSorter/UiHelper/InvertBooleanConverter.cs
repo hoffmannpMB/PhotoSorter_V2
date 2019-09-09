@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml.Data;
 
-namespace PhotoSorter_V2.UiHelper
+namespace PhotoSorter.UiHelper
 {
     public class InvertBooleanConverter : IValueConverter
     {

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="PhotoSorter_V2.Pages.MainPage"
+    x:Class="PhotoSorter.Pages.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:custom="using:CustomControls"

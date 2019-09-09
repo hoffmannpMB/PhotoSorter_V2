@@ -4,9 +4,9 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using MVVM_Base;
 using MVVM_Base.Properties;
-using PhotoSorter_V2.Pages;
+using PhotoSorter.Pages;
 
-namespace PhotoSorter_V2.UiHelper
+namespace PhotoSorter.UiHelper
 {
     public class NavigationService : INavigationService
     {

@@ -1,9 +1,9 @@
-﻿using Autofac;
+﻿using Windows.ApplicationModel;
+using Autofac;
 using ViewModels;
 using ViewModels.MockViewModels;
-using Windows.ApplicationModel;
 
-namespace PhotoSorter_V2.UiHelper
+namespace PhotoSorter.UiHelper
 {
     public class ViewModelLocator
     {

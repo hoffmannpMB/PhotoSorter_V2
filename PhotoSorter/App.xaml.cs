@@ -1,12 +1,12 @@
-﻿using System;
+﻿using PhotoSorter.Pages;
+using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using PhotoSorter_V2.Pages;
 
-namespace PhotoSorter_V2
+namespace PhotoSorter
 {
     /// <summary>
     /// Stellt das anwendungsspezifische Verhalten bereit, um die Standardanwendungsklasse zu ergänzen.

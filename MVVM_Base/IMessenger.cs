@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MVVM_Base.Messenger
+namespace MVVM_Base
 {
     public interface IMessenger
     {

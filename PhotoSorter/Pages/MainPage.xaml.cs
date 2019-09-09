@@ -2,7 +2,7 @@
 
 using Windows.UI.Xaml.Navigation;
 
-namespace PhotoSorter_V2.Pages
+namespace PhotoSorter.Pages
 {
     /// <summary>
     /// Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.

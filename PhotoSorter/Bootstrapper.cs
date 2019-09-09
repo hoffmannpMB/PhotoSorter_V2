@@ -1,14 +1,14 @@
-﻿using Autofac;
-using PhotoSorter_V2.UiHelper;
-using System.Reflection;
+﻿using System.Reflection;
+using Autofac;
 using BusinessLogic;
-using Models;
+using Models.Helper;
 using MVVM_Base.Messenger;
+using PhotoSorter.UiHelper;
 using Repository;
 using ViewModels;
 using ViewModels.Helper;
 
-namespace PhotoSorter_V2
+namespace PhotoSorter
 {
     public class Bootstrapper
     {

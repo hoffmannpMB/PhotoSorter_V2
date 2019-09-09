@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Models.Implementations;
 
-namespace Models
+namespace Models.Helper
 {
     public class ModelFactory : IModelFactory
     {
